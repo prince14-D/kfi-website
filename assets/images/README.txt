@@ -1,0 +1,1 @@
+Place a proper PNG logo here as `logo.png` if you need one for production. Current placeholder: `logo.svg`.
