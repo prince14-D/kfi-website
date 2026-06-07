@@ -4,7 +4,7 @@
 <section class="about-hero" style="background: linear-gradient(135deg, rgba(0,0,57,0.75), rgba(0,0,142,0.75)), url('assets/images/banner3.jpeg') center/cover; color: #fff; padding: 5rem 1rem; text-align: center;">
   <div class="container">
     <h1 class="display-4 fw-bold mb-3">About Kingdom Foundation Institute</h1>
-    <p class="lead" style="max-width: 60ch; margin: 0 auto; font-size: 1.1rem;">Excellence in Education, Grounded in Faith</p>
+    <p class="lead" style="max-width: 60ch; margin: 0 auto; font-size: 1.1rem;">Connecting Christian schools through leadership, collaboration, and school improvement for Liberia and West Africa.</p>
   </div>
 </section>
 
@@ -18,7 +18,8 @@
       <div class="col-lg-7 text-center text-lg-start">
         <h2 class="fw-bold mb-3" style="color: #000039; font-size: 2.2rem;">About The Institution</h2>
         <p style="color: #475569; line-height: 1.8; font-size: 1rem;">
-          Kingdom Foundation Institute, Inc., nestled in the Diamond Creek area of Soul Clinic Community, Paynesville, Liberia, was incorporated in 2021 as a not-for-profit corporation in Montserrado County. Since our humble beginnings in 1996 in the Enders' home as a missionary family's educational initiative, KFI has grown into a beacon of educational excellence.
+          Kingdom Foundation Institute, Inc., nestled in the Diamond Creek area of Soul Clinic Community, Paynesville, Liberia, was incorporated in 2021 as a not-for-profit corporation in Montserrado County. Since our humble beginnings in 1996 in the Enders' home as a missionary family's educational initiative, KFI has grown into a beacon of educational excellence and the home of the Christian Education Leadership and School Improvement Network (CELSIN).
+          CELSIN is a Christian school development program of Kingdom Foundation Institute, Liberia Inc. built around five service pillars for connecting K-12 Christian schools, sharing best practices, facilitating collaboration, and offering peer support.
         </p>
         <div class="mt-4">
           <div class="row g-4">
@@ -52,7 +53,7 @@
             🎯
           </div>
           <h4 class="fw-bold mb-3" style="color: #000039;">Our Mission</h4>
-          <p style="color: #475569; line-height: 1.8;">We are committed to delivering and creating community for transformative education grounded in Christian values, through excellent curricula, pedagogy, and training to foster a culture of excellence in our institution and beyond.</p>
+          <p style="color: #475569; line-height: 1.8;">We are committed to strengthening Christian schools in Liberia and West Africa through service pillars that promote academic excellence, biblical worldview integration, and ethical educational practice. Our work supports schools with leadership development, teacher training, collaborative networking, and school improvement resources.</p>
         </div>
       </div>
       <div class="col-lg-6">
@@ -70,6 +71,42 @@
         <div style="background: #ffffff; padding: 2rem; border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,142,0.08); border-top: 4px solid #CD1C18;">
           <h4 class="fw-bold mb-3" style="color: #000039;">Our Belief</h4>
           <p style="color: #475569; line-height: 1.8;">The loving power of the triune God enlightens the human heart and mind. The Christian school is a nurturing environment for transforming hearts and minds, thus developing excellent Christian character with teachers as models. The Christian school curriculum develops leaders that serve human society with hearts and minds in honor to God.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CELSIN Section -->
+<section class="py-5" style="background: linear-gradient(180deg, rgba(240,244,255,0.98) 0%, rgba(255,255,255,0.98) 100%);">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5" style="color: #000039; font-size: 2.2rem;">Christian Education Leadership and School Improvement Network</h2>
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-6">
+        <div style="background: #ffffff; padding: 2rem; border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,142,0.08); border-top: 4px solid #00008E; min-height: 100%;">
+          <h4 class="fw-bold mb-3" style="color: #000039;">About CELSIN</h4>
+          <p style="color: #475569; line-height: 1.8;">CELSIN is a Christian school development program of Kingdom Foundation Institute, Liberia Inc. It is built around five service pillars designed to connect K-12 Christian schools, share best practices, facilitate collaboration, and offer peer support across Liberia and West Africa.</p>
+          <ul style="color: #475569; line-height: 1.8; font-size: 0.95rem; padding-left: 1.2rem; margin-top: 1rem;">
+            <li>Connecting K-12 Christian schools through intentional networks.</li>
+            <li>Sharing best practices for curriculum, instruction, and school culture.</li>
+            <li>Facilitating collaboration and peer learning among school leaders.</li>
+            <li>Providing mentoring, training, and ongoing support for teachers.</li>
+            <li>Promoting faith-based academic excellence and ethical educational practice.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div style="background: #ffffff; padding: 2rem; border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,142,0.08); border-top: 4px solid #CD1C18; min-height: 100%;">
+          
+          <h4 class="fw-bold mb-3 mt-4" style="color: #000039;">Our Background</h4>
+          <ul style="color: #475569; line-height: 1.8; font-size: 0.95rem; padding-left: 1.2rem;">
+            <li>More than 20 years of operating a K-12 Christian school.</li>
+            <li>Experience in in-service training of novice teachers.</li>
+            <li>A history of school networking through Christian Schools Network, Inc. since 2002.</li>
+            <li>Registered not-for-profit status as Kingdom Foundation Institute, Inc. in 2021.</li>
+            <li>Previous international partnership experience in Christian worldview education.</li>
+            <li>Strong experience serving schools in post-conflict Liberia.</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -183,56 +220,85 @@
 </section>
 
 <!-- Administration -->
-<section class="py-5 admin-section" data-animate>
+<section class="py-5 admin-section about-admin-section" data-animate>
   <div class="container">
-    <h2 class="section-title text-center mb-2">Meet Our Administration</h2>
-    <p class="text-center text-muted mb-5 admin-intro">The dedicated leaders who guide our school every day.</p>
-    <div class="row g-4 justify-content-center">
+    <div class="admin-section-header">
+      <div>
+        <span class="section-eyebrow">School Leadership</span>
+        <h2 class="section-title mb-2">Meet Our Administration</h2>
+        <p class="text-muted mb-0 admin-intro">The dedicated leaders who guide curriculum, instruction, student care, and school improvement every day.</p>
+      </div>
+      <a href="team.php" class="btn btn-school admin-header-cta">
+        View Full Team
+        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <div class="row g-4 justify-content-center admin-team-grid">
 
       <div class="col-12 col-md-4 col-lg-3">
         <div class="admin-card text-center">
           <div class="admin-photo-wrap">
-            <img src="assets/images/founder.jpg" class="team-photo" alt="Principal">
+            <img src="assets/images/founder.jpg" class="team-photo" alt="Mrs. Comfort Enders">
           </div>
+          <span class="admin-badge">Executive Leadership</span>
           <h6 class="mt-3 mb-1">Mrs. Comfort Enders, M.Ed</h6>
           <span class="admin-role">Chief Executive Consultant</span>
+          <p class="admin-card-note">Provides strategic guidance for school culture, leadership development, and institutional growth.</p>
         </div>
       </div>
 
       <div class="col-12 col-md-4 col-lg-3">
         <div class="admin-card text-center">
           <div class="admin-photo-wrap">
-            <img src="assets/images/programd.png" class="team-photo" alt="Chief Learning Officer">
+            <img src="assets/images/programd.png" class="team-photo" alt="Jonathan Enders">
           </div>
+          <span class="admin-badge">Program Direction</span>
           <h6 class="mt-3 mb-1">Jonathan Enders, B.Sc</h6>
           <span class="admin-role">K-12 Program Director</span>
+          <p class="admin-card-note">Leads program planning, teacher support, and academic improvement across grade levels.</p>
         </div>
       </div>
 
       <div class="col-12 col-md-4 col-lg-3">
         <div class="admin-card text-center">
           <div class="admin-photo-wrap">
-            <img src="assets/images/princapal.jpg" class="team-photo" alt="Academic Dean">
+            <img src="assets/images/princapal.jpg" class="team-photo" alt="Benjamin Geeton">
           </div>
+          <span class="admin-badge">Campus Leadership</span>
           <h6 class="mt-3 mb-1">Benjamin Geeton, M.A.</h6>
           <span class="admin-role">K-12 Building Principal</span>
+          <p class="admin-card-note">Oversees daily school operations, student support, and classroom excellence.</p>
         </div>
       </div>
 
       <div class="col-12 col-md-4 col-lg-3">
         <div class="admin-card text-center">
-          <div class="admin-photo-wrap">
-            <img src="assets/images/Mr. James M. Folley .jpeg" class="team-photo" alt="Vice Principal For Instructions">
+          <div class="admin-photo-wrap admin-photo-placeholder" aria-hidden="true">
+            <span>JF</span>
           </div>
+          <span class="admin-badge">Instruction</span>
           <h6 class="mt-3 mb-1">Mr. James M. Folley</h6>
           <span class="admin-role">Vice Principal For Instructions</span>
+          <p class="admin-card-note">Supports lesson quality, teacher mentoring, and consistent instructional practice.</p>
         </div>
       </div>
 
-
-
-      <div class="col-12 text-center">
-        <a href="team.php" class="btn btn-school mt-3">View More Team</a>
+      <div class="col-12">
+        <div class="admin-summary-band">
+          <div>
+            <i class="bi bi-mortarboard" aria-hidden="true"></i>
+            <span>Academic excellence</span>
+          </div>
+          <div>
+            <i class="bi bi-heart" aria-hidden="true"></i>
+            <span>Student care</span>
+          </div>
+          <div>
+            <i class="bi bi-compass" aria-hidden="true"></i>
+            <span>Values-based leadership</span>
+          </div>
+        </div>
       </div>
 
     </div>

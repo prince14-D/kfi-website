@@ -41,6 +41,9 @@
           <a href="tel:+231770372231" aria-label="Call"><i class="bi bi-telephone-fill"></i></a>
           <a href="mailto:info@kingdomfoundationinstituteinc.org" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
           <a href="https://wa.me/231770372231" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
         </div>
       </div>
 
@@ -58,6 +61,18 @@
     <i class="bi bi-arrow-up"></i>
   </button>
 </footer>
+
+<div class="floating-contact" aria-label="Quick contact links">
+  <a href="https://wa.me/231770372231" target="_blank" rel="noopener noreferrer" class="floating-contact-link floating-whatsapp" aria-label="Chat on WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+  <a href="tel:+231770372231" class="floating-contact-link floating-phone" aria-label="Call Kingdom Foundation Institute">
+    <i class="bi bi-telephone-fill"></i>
+  </a>
+  <a href="mailto:info@kingdomfoundationinstituteinc.org" class="floating-contact-link floating-email" aria-label="Email Kingdom Foundation Institute">
+    <i class="bi bi-envelope-fill"></i>
+  </a>
+</div>
 
 <!-- ================= SCRIPTS ================= -->
 
