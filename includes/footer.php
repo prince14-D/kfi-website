@@ -28,6 +28,7 @@
           <li><a href="gallery.php">Gallery</a></li>
           <li><a href="contact.php">Contact</a></li>
           <li><a href="https://portal.kingdomfoundationinstituteinc.org/login.php" target="_blank">E-Portal</a></li>
+          <li><a href="admin/login.php"><i class="bi bi-lock-fill me-1"></i>Admin</a></li>
         </ul>
       </div>
 
@@ -61,20 +62,37 @@
     <i class="bi bi-arrow-up"></i>
   </button>
 </footer>
-
 <div class="floating-contact" aria-label="Quick contact links">
-  <a href="https://wa.me/231770372231" target="_blank" rel="noopener noreferrer" class="floating-contact-link floating-whatsapp" aria-label="Chat on WhatsApp">
-    <i class="bi bi-whatsapp"></i>
-  </a>
-  <a href="tel:+231770372231" class="floating-contact-link floating-phone" aria-label="Call Kingdom Foundation Institute">
-    <i class="bi bi-telephone-fill"></i>
-  </a>
-  <a href="mailto:info@kingdomfoundationinstituteinc.org" class="floating-contact-link floating-email" aria-label="Email Kingdom Foundation Institute">
-    <i class="bi bi-envelope-fill"></i>
-  </a>
+  <div class="floating-contact-links-wrapper">
+    <a href="https://wa.me/231770372231" target="_blank" rel="noopener noreferrer" class="floating-contact-link floating-whatsapp" aria-label="Chat on WhatsApp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+    <a href="tel:+231770372231" class="floating-contact-link floating-phone" aria-label="Call Kingdom Foundation Institute">
+      <i class="bi bi-telephone-fill"></i>
+    </a>
+    <a href="mailto:info@kingdomfoundationinstituteinc.org" class="floating-contact-link floating-email" aria-label="Email Kingdom Foundation Institute">
+      <i class="bi bi-envelope-fill"></i>
+    </a>
+  </div>
+  <button class="floating-contact-toggle" aria-label="Toggle quick contact options">
+    <i class="bi bi-three-dots"></i>
+  </button>
 </div>
 
 <!-- ================= SCRIPTS ================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const toggleButton = document.querySelector(".floating-contact-toggle");
+  const floatingContact = document.querySelector(".floating-contact");
+
+  if (toggleButton && floatingContact) {
+    toggleButton.addEventListener("click", function() {
+      floatingContact.classList.toggle("is-active");
+    });
+  }
+});
+</script>
+
 
 <!-- Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -91,10 +109,17 @@ if ('serviceWorker' in navigator) {
 <!-- ================= SPLASH SCREEN ================= -->
 <script>
 window.addEventListener("load", function() {
-  setTimeout(function() {
-    const splash = document.getElementById("splash-screen");
-    if (splash) splash.style.display = "none";
-  }, 1200);
+  const splash = document.getElementById("splash-screen");
+  if (splash) {
+    setTimeout(function() {
+      // Add a class to start the fade-out animation
+      splash.classList.add("fade-out");
+
+      // Listen for the end of the CSS transition, then remove the element
+      // { once: true } ensures the listener is automatically removed after it fires
+      splash.addEventListener("transitionend", () => splash.remove(), { once: true });
+    }, 1200); // Keep the initial 1200ms delay before starting the fade-out
+  }
 });
 </script>
 

@@ -44,6 +44,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'academic.php' ? 'active' : ''; ?>" href="academic.php">Academics</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'admissions.php' ? 'active' : ''; ?>" href="admissions.php">Admissions</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'news.php' ? 'active' : ''; ?>" href="news.php">News</a></li>
+        <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'donate.php' ? 'active' : ''; ?>" href="donate.php">Donate</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'contacts.php' ? 'active' : ''; ?>" href="contacts.php">Contact</a></li>
         <li class="nav-item">
           <a href="#" class="btn btn-warning fw-bold px-3 ms-lg-3">E-Portal</a>
