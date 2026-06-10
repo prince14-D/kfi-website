@@ -18,8 +18,8 @@
       <div class="col-lg-7 text-center text-lg-start">
         <h2 class="fw-bold mb-3" style="color: #000039; font-size: 2.2rem;">About The Institution</h2>
         <p style="color: #475569; line-height: 1.8; font-size: 1rem;">
-          Kingdom Foundation Institute, Inc., nestled in the Diamond Creek area of Soul Clinic Community, Paynesville, Liberia, was incorporated in 2021 as a not-for-profit corporation in Montserrado County. Since our humble beginnings in 1996 in the Enders' home as a missionary family's educational initiative, KFI has grown into a beacon of educational excellence and the home of the Christian Education Leadership and School Improvement Network (CELSIN).
-          CELSIN is a Christian school development program of Kingdom Foundation Institute, Liberia Inc. built around five service pillars for connecting K-12 Christian schools, sharing best practices, facilitating collaboration, and offering peer support.
+          Kingdom Foundation Institute, Inc., nestled in the Diamond Creek area of Soul Clinic Community, Paynesville, Liberia, was incorporated in 2021 as a not-for-profit corporation in Montserrado County. Since our beginnings in 1996 in the Enders' home as a missionary family's educational initiative, KFI has grown into a model of educational excellence and the home of the Christian Education Leadership and School Improvement Network (CELSIN).
+          CELSIN-KFI is a Christian school development program of Kingdom Foundation Institute, Liberia Inc. built around five service pillars for connecting K-12 Christian schools, sharing best practices, facilitating collaboration, and offering peer support.
         </p>
         <div class="mt-4">
           <div class="row g-4">
@@ -53,7 +53,7 @@
             🎯
           </div>
           <h4 class="fw-bold mb-3" style="color: #000039;">Our Mission</h4>
-          <p style="color: #475569; line-height: 1.8;">We are committed to strengthening Christian schools in Liberia and West Africa through service pillars that promote academic excellence, biblical worldview integration, and ethical educational practice. Our work supports schools with leadership development, teacher training, collaborative networking, and school improvement resources.</p>
+          <p style="color: #475569; line-height: 1.8;">Committed to modelling and strengthening Christian schooling in Liberia and in West Africa through our service pillars, which promote academic excellence, biblical worldview integration, and ethical educational practice.</p>
         </div>
       </div>
       <div class="col-lg-6">
@@ -62,16 +62,11 @@
             👁️
           </div>
           <h4 class="fw-bold mb-3" style="color: #000039;">Our Vision</h4>
-          <p style="color: #475569; line-height: 1.8;">To be a leading Christian institution within the education community known for excellence in both nurturing and inspiring others to nurture generations of God-fearing leaders for society.</p>
+          <p style="color: #475569; line-height: 1.8;">To become the leading Christian school improvement and professional development organization in Liberia and eventually West Africa, operating on a financially sustainable social enterprise model.</p>
         </div>
       </div>
     </div>
-    <div class="row mt-5">
-      <div class="col-12">
-        <div style="background: #ffffff; padding: 2rem; border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,142,0.08); border-top: 4px solid #CD1C18;">
-          <h4 class="fw-bold mb-3" style="color: #000039;">Our Belief</h4>
-          <p style="color: #475569; line-height: 1.8;">The loving power of the triune God enlightens the human heart and mind. The Christian school is a nurturing environment for transforming hearts and minds, thus developing excellent Christian character with teachers as models. The Christian school curriculum develops leaders that serve human society with hearts and minds in honor to God.</p>
-        </div>
+   
       </div>
     </div>
   </div>
@@ -84,8 +79,8 @@
     <div class="row g-4 align-items-start">
       <div class="col-lg-6">
         <div style="background: #ffffff; padding: 2rem; border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,142,0.08); border-top: 4px solid #00008E; min-height: 100%;">
-          <h4 class="fw-bold mb-3" style="color: #000039;">About CELSIN</h4>
-          <p style="color: #475569; line-height: 1.8;">CELSIN is a Christian school development program of Kingdom Foundation Institute, Liberia Inc. It is built around five service pillars designed to connect K-12 Christian schools, share best practices, facilitate collaboration, and offer peer support across Liberia and West Africa.</p>
+          <h4 class="fw-bold mb-3" style="color: #000039;">About CELSIN-KFI</h4>
+          <p style="color: #475569; line-height: 1.8;">CELSIN-KFI is a Christian school development program of Kingdom Foundation Institute, Liberia Inc. It is built around five service pillars designed to connect K-12 Christian schools, share best practices, facilitate collaboration, and offer peer support across Liberia and West Africa.</p>
           <ul style="color: #475569; line-height: 1.8; font-size: 0.95rem; padding-left: 1.2rem; margin-top: 1rem;">
             <li>Connecting K-12 Christian schools through intentional networks.</li>
             <li>Sharing best practices for curriculum, instruction, and school culture.</li>
@@ -126,49 +121,49 @@
           <!-- Timeline Item 1 -->
           <div style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e0e7ff;">
             <div style="position: absolute; left: -10px; top: 0; width: 20px; height: 20px; background: #00008E; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 2px #00008E;"></div>
-            <h5 class="fw-bold" style="color: #000039; margin-bottom: 0.5rem;">1996 - The Beginning</h5>
+            <h5 class="fw-bold" style="color: #000039; margin-bottom: 0.5rem;">1996 - 1999 - The Beginning</h5>
             <p style="color: #64748b; margin: 0;">Kingdom Foundation Institute began in the home of Jonathan and Comfort Enders as missionaries with the Great Commission Movement, serving their own three children's preschool needs.</p>
           </div>
 
           <!-- Timeline Item 2 -->
           <div style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e0e7ff;">
             <div style="position: absolute; left: -10px; top: 100px; width: 20px; height: 20px; background: #00008E; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 2px #00008E;"></div>
-            <h5 class="fw-bold" style="color: #000039; margin-bottom: 0.5rem;">1998 - Returning Home</h5>
-            <p style="color: #64748b; margin: 0;">The vision was confirmed to expand high-quality Christian education to neighborhood children in slum communities within Kaymah Town, Paynesville.</p>
+            <h5 class="fw-bold" style="color: #000039; margin-bottom: 0.5rem;">2000 - Compliance (Liberia)</h5>
+            <p style="color: #64748b; margin: 0;">Permit from the Ministry of Education, Republic of Liberia, to operate a full elementary school (June 2000)</p>
           </div>
 
           <!-- Timeline Item 3 -->
           <div style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e0e7ff;">
             <div style="position: absolute; left: -10px; top: 200px; width: 20px; height: 20px; background: #00008E; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 2px #00008E;"></div>
-            <h5 class="fw-bold" style="color: #000039; margin-bottom: 0.5rem;">2000 - First Permit</h5>
-            <p style="color: #64748b; margin: 0;">KFI secured its first school operation permit from the Ministry of Education, Republic of Liberia.</p>
+            <h5 class="fw-bold" style="color: #000039; margin-bottom: 0.5rem;">2001 - 2003 - Move out, partner, network.</h5>
+            <p style="color: #64748b; margin: 0;">Enrollment of 81 neighborhood children. A temporary school building made with local materials. First Christian School Awareness Conference (Feb 2001): 36 in attendance, representing 11 school leaders and related organizational leaders. First weeklong Christian "Teachers Conference." August 2001. (Facilitated by John De Jager, Christian Schools International (USA) Launch of Christian Schools Network—Liberia (CSN-L). Incorporated in 2002.</p>
           </div>
 
           <!-- Timeline Item 4 -->
           <div style="margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #e0e7ff;">
             <div style="position: absolute; left: -10px; top: 300px; width: 20px; height: 20px; background: #00008E; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 2px #00008E;"></div>
-            <h5 class="fw-bold" style="color: #000039; margin-bottom: 0.5rem;">2003 - Expansion</h5>
-            <p style="color: #64748b; margin: 0;">First school buildings constructed in Soul Clinic Community and Kaymah Town using oil palm straw mats and tarpaulins, serving 114 children total.</p>
+            <h5 class="fw-bold" style="color: #000039; margin-bottom: 0.5rem;">2004 - 2013 Increase</h5>
+            <p style="color: #64748b; margin: 0;">KFI obtains a high school operational permit from the Ministry of Education. First batch of 7 sixth-grade graduates (2004) KFI moves into its permanent concrete one-story school building in 2008. The building was funded through Partners for Learning Across Cultures (USA). Student population up, over 200 Pioneer batch of 4 twelfth-grade graduates in 2011 (2 Enders plus 2) Christian Schools Network membership is up to 7 schools. Offering teacher/administrator continuing professional development, instructional materials support , and annual conferences. Partnership with Partners for Learning Across Cultures (USA), Calvin University (USA), and Monrovia Bible College.</p>
           </div>
 
           <!-- Timeline Item 5 -->
           <div style="margin-bottom: 2rem;">
             <div style="position: absolute; left: -10px; top: 400px; width: 20px; height: 20px; background: #CD1C18; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 0 0 2px #CD1C18;"></div>
-            <h5 class="fw-bold" style="color: #000039; margin-bottom: 0.5rem;">2008 - Permanent Home</h5>
-            <p style="color: #64748b; margin: 0;">Grand opening of the permanent 8-classroom building in Diamond Creek, Soul Clinic Community, with a gracing visit from the President of Liberia.</p>
+            <h5 class="fw-bold" style="color: #000039; margin-bottom: 0.5rem;">2014 - 2021 Expansion</h5>
+            <p style="color: #64748b; margin: 0;">The CEO of CSN coordinates a national pilot in Jolly Phonics Teachers’ Training (2018–2020) through the Ministry of Education, Republic of Liberia. Certificate Jolly Phonics teacher training and consultancy made available to private schools by KFI, Inc.</p>
           </div>
         </div>
 
         <div style="background: linear-gradient(135deg, rgba(0,0,142,0.05), rgba(205,28,24,0.05)); padding: 2rem; border-radius: 12px; margin-top: 2rem; border-left: 4px solid #00008E;">
-          <h5 class="fw-bold" style="color: #000039; margin-bottom: 0.75rem;">2011 & Beyond</h5>
-          <p style="color: #475569; margin: 0; line-height: 1.75;">The alumni population continues to grow from the first batch of 4 twelfth-grade graduates in 2011, including two of the Enders' children. KFI remains intentional in its mission, offering targeted trainings and professional development to schools in Liberia and beyond.</p>
+          <h5 class="fw-bold" style="color: #000039; margin-bottom: 0.75rem;">2025 Growth & Beyond</h5>
+          <p style="color: #475569; margin: 0; line-height: 1.75;">The current alumni count of the K-12 program is 214. Training and consultancy add one site outside Montserrado County.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- What We Do Section -->
+<!-- What We Do Section 
 <section class="py-5" style="background: linear-gradient(180deg, #f0f4ff 0%, #ffffff 100%), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><defs><pattern id=%22grid%22 width=%2260%22 height=%2260%22 patternUnits=%22userSpaceOnUse%22><path d=%22M 60 0 L 0 0 0 60%22 fill=%22none%22 stroke=%22%23e0e7ff%22 stroke-width=%220.5%22/></pattern></defs><rect width=%22100%25%22 height=%22100%25%22 fill=%22url(%23grid)%22/></svg>') center/60px;">
   <div class="container">
     <h2 class="text-center fw-bold mb-5" style="color: #000039; font-size: 2.2rem;">What We Do</h2>
@@ -218,13 +213,14 @@
     </div>
   </div>
 </section>
+-->
 
 <!-- Administration -->
 <section class="py-5 admin-section about-admin-section" data-animate>
   <div class="container">
     <div class="admin-section-header">
       <div>
-        <span class="section-eyebrow">School Leadership</span>
+        <span class="section-eyebrow"> Leadership</span>
         <h2 class="section-title mb-2">Meet Our Administration</h2>
         <p class="text-muted mb-0 admin-intro">The dedicated leaders who guide curriculum, instruction, student care, and school improvement every day.</p>
       </div>
@@ -311,8 +307,8 @@
   <div class="container">
     <div class="verification-cta d-flex flex-column flex-lg-row align-items-center justify-content-between gap-3">
       <div>
-        <h4 class="mb-1">Student Verification System</h4>
-        <p class="mb-0">Parents and students can verify official records using a unique school UID.</p>
+        <h4 class="mb-1">School Verification System</h4>
+        <p class="mb-0">Schools and Partners can verify official records using a unique school UID.</p>
       </div>
       <a href="verification.php" class="btn btn-school btn-lg">Verify Student Information</a>
     </div>

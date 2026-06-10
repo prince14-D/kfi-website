@@ -4,7 +4,7 @@
     <div class="overlay"></div>
     <div class="slide-inner container">
       <p class="slide-kicker">Welcome to Kingdom Foundation Institute</p>
-      <h1>Building bright futures through quality education</h1>
+      <h1>Building high-quality academic and character foundations grounded in a biblical worldview.</h1>
       <p>We provide a supportive learning environment where every student is encouraged to grow with confidence, discipline, and purpose.</p>
       <div class="hero-cta">
         <a href="admissions.php" class="hero-btn hero-btn-primary">Apply Now</a>
@@ -77,17 +77,18 @@
           <h2>Mrs. Comfort Enders, M.Ed.</h2>
           <p class="founder-title">Founding Principal/Chief Executive Consultant</p>
 
-          <blockquote class="founder-quote">"At Kingdom Foundation Institute, we are committed to nurturing every child's potential through academic rigour and character development, preparing them to serve and lead with integrity."</blockquote>
-
+          <blockquote class="founder-quote">"At Kingdom Foundation Institute, we are committed modeling and connecting with schools in developing nurturing spaces for responsible Christian leaders for the workplace."</blockquote>
           <p>
-            At Kingdom Foundation Institute, our vision has always been to raise learners who are prepared for life, grounded in character,
-            and equipped to contribute positively to their community. We believe that quality education must be paired with disciplined teaching,
-            faith, and a nurturing environment where every child is seen and supported.
+            Kingdom Foundation Institute, Inc., under God’s guidance, has lived the reality of a famous saying: “Start by doing what is necessary, then do what is possible, and suddenly you are doing the impossible.”
           </p>
-
           <p>
-            Our commitment is to continue providing a strong foundation that helps students discover their purpose, develop confidence,
-            and pursue excellence in all they do.
+            In 1996, it became necessary for one missionary family, in refuge from war, to provide foundational academic preparation for their own 3 children at home, using an international, Christian-based academic curriculum.
+          </p>
+          <p>
+            Then in 2000 it was necessary and possible to secure a Ministry of Education operational permit for an elementary school that would include nearly 100 neighborhood children in our program housed in palm-straw mat buildings at two locations in the community.
+          </p>
+          <p>
+            Now, with the small, necessary, consistent steps, we are at what seemed impossible at the start: The Kingdom Foundation Institute is modeling and connecting with schools in developing nurturing spaces for responsible Christian leaders for the workplace.
           </p>
 
           <p class="founder-signoff mb-0">With purpose and gratitude,<br><strong>Mrs. Comfort Enders, M.Ed.</strong></p>
@@ -144,7 +145,7 @@
 
 <section class="gallery-section py-5" data-animate>
   <div class="container text-center">
-    <h2 class="section-title">School Activities</h2>
+    <h2 class="section-title">Activities</h2>
     <div class="row g-3 mt-2">
       <div class="col-md-4">
         <div class="gallery-item">
@@ -226,38 +227,38 @@
       </div>
 
       <div class="col-lg-6">
-        <h2 class="section-title mb-1">Why Choose Kingdom Foundation Institute?</h2>
-        <p class="text-muted mb-4">We don't just teach — we shape futures through values-driven, learner-centered education.</p>
+        <h2 class="section-title mb-1">Why Choose Us?</h2>
+        <p class="text-muted mb-4">We model and connect to maintain excellent academic and character education grounded in a biblical worldviewer.</p>
 
         <div class="why-list">
           <div class="why-list-item d-flex mb-3">
             <div class="why-list-icon flex-shrink-0 me-3"><i class="bi bi-patch-check-fill"></i></div>
             <div>
               <h6 class="mb-1">Quality Academic Programs</h6>
-              <p class="mb-0 text-muted">A structured curriculum from Early Childhood through Upper Elementary.</p>
+              <p class="mb-0 text-muted">A structured curriculum from Early Childhood through high school.</p>
             </div>
           </div>
 
           <div class="why-list-item d-flex mb-3">
             <div class="why-list-icon flex-shrink-0 me-3"><i class="bi bi-people-fill"></i></div>
             <div>
-              <h6 class="mb-1">Experienced & Caring Staff</h6>
-              <p class="mb-0 text-muted">Qualified teachers dedicated to every child's growth and wellbeing.</p>
+              <h6 class="mb-1">Strategic Networking</h6>
+              <p class="mb-0 text-muted">Connect with Christian school leaders for peer support, shared resources, referrals, and collaborative problem solving.</p>
             </div>
           </div>
 
           <div class="why-list-item d-flex mb-3">
             <div class="why-list-icon flex-shrink-0 me-3"><i class="bi bi-shield-fill-check"></i></div>
             <div>
-              <h6 class="mb-1">Safe & Nurturing Environment</h6>
-              <p class="mb-0 text-muted">A secure space where students feel valued, confident, and motivated.</p>
+              <h6 class="mb-1">Targeted professional development</h6>
+              <p class="mb-0 text-muted">Practical training for teachers, administrators, and school teams focused on classroom excellence and Christian formation.</p>
             </div>
           </div>
 
           <div class="why-list-item d-flex mb-3">
             <div class="why-list-icon flex-shrink-0 me-3"><i class="bi bi-heart-fill"></i></div>
             <div>
-              <h6 class="mb-1">Values-Based Education</h6>
+              <h6 class="mb-1">Maintaining models of Christian schooling</h6>
               <p class="mb-0 text-muted">Love, unity, discipline, and peaceful co-existence woven into every lesson.</p>
             </div>
           </div>
@@ -303,7 +304,7 @@
           <div class="admin-photo-wrap">
             <img src="assets/images/princapal.jpg" class="team-photo" alt="Academic Dean">
           </div>
-          <h6 class="mt-3 mb-1">Benjamin Geeton, M.A.</h6>
+          <h6 class="mt-3 mb-1">Benjamin Geeton, Phd.</h6>
           <span class="admin-role">K-12 Building Principal</span>
         </div>
       </div>
@@ -332,7 +333,7 @@
 <!-- Testimonials -->
 <section class="py-5 testimonials-section" data-animate>
   <div class="container">
-    <h2 class="section-title text-center mb-3">What Parents Say</h2>
+    <h2 class="section-title text-center mb-3">Voices from Our Community</h2>
     <div class="row g-4 justify-content-center">
 
       <div class="col-12 col-md-6 col-lg-3">
@@ -396,6 +397,65 @@
 </section>
 
 
+<section class="celsin-services py-5" data-animate>
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-eyebrow">Our Core Services</span>
+      <h2 class="section-title">Five Pillars of Christian School Development</h2>
+      <p class="text-muted mx-auto mb-0" style="max-width:720px;">CELSIN-KFI helps schools strengthen leadership, instruction, governance, collaboration, and improvement systems through practical support.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-6 col-xl">
+        <article class="celsin-service-card">
+          <div class="service-icon"><i class="bi bi-diagram-3" aria-hidden="true"></i></div>
+          <h5>K-12 Christian Schools Networking</h5>
+          <p>Connect with Christian school leaders for peer support, shared resources, referrals, and collaborative problem solving.</p>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-xl">
+        <article class="celsin-service-card">
+          <div class="service-icon"><i class="bi bi-calendar-event" aria-hidden="true"></i></div>
+          <h5>Annual Christian Education Summit</h5>
+          <p>A yearly gathering for training, worship, planning, leadership renewal, and Christian education collaboration.</p>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-xl">
+        <article class="celsin-service-card">
+          <div class="service-icon"><i class="bi bi-clipboard-check" aria-hidden="true"></i></div>
+          <h5>School Improvement Consultancy</h5>
+          <p>On-site and remote support for schools that need stronger systems, clearer plans, and measurable improvement goals.</p>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-xl">
+        <article class="celsin-service-card">
+          <div class="service-icon"><i class="bi bi-award" aria-hidden="true"></i></div>
+          <h5>K-12 School Accreditation & Recognition</h5>
+          <p>A guided recognition process that helps schools document quality, improve standards, and celebrate progress.</p>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-xl">
+        <article class="celsin-service-card">
+          <div class="service-icon"><i class="bi bi-person-workspace" aria-hidden="true"></i></div>
+          <h5>Professional Development Training</h5>
+          <p>Practical training for teachers, administrators, and school teams focused on classroom excellence and Christian formation.</p>
+        </article>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <a href="academic.php#academic-services" class="btn btn-school btn-lg">
+        Explore All Services
+        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+
 
 
 <!-- DOWNLOADS -->
@@ -403,16 +463,16 @@
   <div class="container">
     <div class="downloads-wrap">
       <div class="text-center mb-4">
-        <h2 class="section-title mb-2">Download School Documents</h2>
+        <h2 class="section-title mb-2">Download Programs Documents</h2>
         <p class="text-muted mb-0">Get the latest brochure and information sheet for admissions and programs.</p>
       </div>
       <div class="row g-4 justify-content-center">
         <div class="col-md-6 col-lg-5">
           <div class="download-card">
             <div class="download-icon"><i class="bi bi-file-earmark-pdf-fill"></i></div>
-            <h5 class="mb-2">School Brochure</h5>
+            <h5 class="mb-2">Programs Brochure</h5>
             <p class="mb-3">Overview of our programs, facilities, and student life at Logic-A Demonstration School.</p>
-            <a href="assets/files/logic-school-brochure.pdf" class="btn btn-school" download>
+            <a href="assets/files/logic-programs-brochure.pdf" class="btn btn-school" download>
               <i class="bi bi-download me-1"></i> Download Brochure
             </a>
           </div>
@@ -422,7 +482,7 @@
             <div class="download-icon"><i class="bi bi-file-earmark-text-fill"></i></div>
             <h5 class="mb-2">Information Sheet</h5>
             <p class="mb-3">Quick facts on admission process, school calendar, contacts, and key requirements.</p>
-            <a href="assets/files/logic-school-information-sheet.pdf" class="btn btn-outline-secondary" download>
+            <a href="assets/files/logic-programs-information-sheet.pdf" class="btn btn-outline-secondary" download>
               <i class="bi bi-download me-1"></i> Download Info Sheet
             </a>
           </div>
@@ -434,6 +494,3 @@
 </section>
 
 <?php include 'includes/footer.php'; ?>
-
-
-

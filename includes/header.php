@@ -6,7 +6,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kingdom Foundation Institute</title>
+  <title>Kingdom Foundation Institute,</title>
   <meta name="theme-color" content="#00008E">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -18,8 +18,8 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <?php if ($currentPage === 'index.php'): ?>
 <div id="splash-screen" aria-hidden="true">
   <img src="assets/images/logo.png" alt="Kingdom Foundation Institute logo">
-  <h3>Kingdom Foundation Institute</h3>
-  <p class="splash-tagline">CULTURE OF EXCELLENCE</p>
+  <h3>Kingdom Foundation Institute, Inc.</h3>
+  <p class="splash-tagline"> Fostering a culture of excellence in nurturing the heart and mind.</p>
 </div>
 <?php endif; ?>
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top site-navbar">
@@ -40,8 +40,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
       <ul class="navbar-nav ms-auto gap-2 gap-lg-1">
         <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'index.php' ? 'active' : ''; ?>" href="index.php">Home</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'about.php' ? 'active' : ''; ?>" href="about.php">About</a></li>
-        <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'founder.php' ? 'active' : ''; ?>" href="founder.php">Founder</a></li>
-        <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'academic.php' ? 'active' : ''; ?>" href="academic.php">Academics</a></li>
+        <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'academic.php' ? 'active' : ''; ?>" href="academic.php">Services</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'admissions.php' ? 'active' : ''; ?>" href="admissions.php">Admissions</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'news.php' ? 'active' : ''; ?>" href="news.php">News</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'donate.php' ? 'active' : ''; ?>" href="donate.php">Donate</a></li>

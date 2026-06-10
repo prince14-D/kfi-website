@@ -11,9 +11,9 @@
 <section class="celsin-services py-5" id="academic-services">
   <div class="container">
     <div class="text-center mb-5">
-      <span class="section-eyebrow">Academic Services</span>
-      <h2 class="section-title">Five service pillars for Christian school growth</h2>
-      <p class="text-muted mx-auto mb-0" style="max-width:720px;">CELSIN helps schools strengthen leadership, instruction, governance, collaboration, and improvement systems through practical support.</p>
+      <span class="section-eyebrow">Services</span>
+      <h2 class="section-title">Five service pillars for Christian school Development</h2>
+      <p class="text-muted mx-auto mb-0" style="max-width:720px;">CELSIN-KFI models and helps schools strengthen leadership, instruction, governance, collaboration, and improvement systems through practical support.</p>
     </div>
 
     <div class="row g-4">
@@ -90,8 +90,8 @@
     <div class="row g-5 align-items-start">
       <div class="col-lg-5">
         <span class="section-eyebrow">Fees Structure</span>
-        <h2 class="section-title">Flexible fees based on service scope</h2>
-        <p class="text-muted">CELSIN fees are structured by school size, service type, training length, and whether support is delivered on campus or remotely. Contact the Admissions Office for an official quotation.</p>
+        <h2 class="section-title">Flexible charges based on service package</h2>
+        <p class="text-muted">CELSIN-KFI charges are structured by school size, service type, training length, and whether support is delivered on campus or remotely. Contact the Admissions Office for an official quotation.</p>
         <div class="fees-note">
           <i class="bi bi-info-circle" aria-hidden="true"></i>
           <span>Group training, network membership, summit participation, and consultancy packages are quoted separately.</span>
@@ -146,7 +146,7 @@
     <div class="celsin-download-panel">
       <div>
         <span class="section-eyebrow">Get Started</span>
-        <h2>Bring CELSIN support to your school</h2>
+        <h2>Bring CELSIN-KFI support to your school</h2>
         <p>Download the brochure, review the service pillars, and register your interest with the CELSIN-KFI office.</p>
       </div>
       <div class="celsin-cta-actions">

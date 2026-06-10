@@ -3,8 +3,8 @@
 <!-- Hero Banner -->
 <section class="about-hero" style="background: linear-gradient(135deg, rgba(0,0,57,0.75), rgba(0,0,142,0.75)), url('assets/images/banner2.jpeg') center/cover; color: #fff; padding: 5rem 1rem; text-align: center;">
   <div class="container">
-    <h1 class="display-4 fw-bold mb-3">Join the KFI Family</h1>
-    <p class="lead" style="max-width: 60ch; margin: 0 auto; font-size: 1.1rem;">We welcome students from all backgrounds to join our community of academic excellence and character development.</p>
+    <h1 class="display-4 fw-bold mb-3">Join the KFI Family in the Soul Clinic Community </h1>
+    <p class="lead" style="max-width: 60ch; margin: 0 auto; font-size: 1.1rem;">We welcome students from all backgrounds to join our community of academic excellence with christian character development.</p>
   </div>
 </section>
 

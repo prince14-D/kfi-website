@@ -41,20 +41,31 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // Simple slider autoplay and controls
   var slides = document.querySelectorAll('.hero-slider .slide');
-  var current = 0;
-  var nextBtn = document.querySelector('.slider-controls .next');
-  var prevBtn = document.querySelector('.slider-controls .prev');
-  function show(index){
-    slides.forEach(function(s,i){
-      s.classList.toggle('active', i===index);
-    });
-    current = index;
+  if (slides.length > 0) {
+    var current = 0;
+    var nextBtn = document.querySelector('.slider-controls .next');
+    var prevBtn = document.querySelector('.slider-controls .prev');
+    function show(index){
+      slides.forEach(function(s,i){
+        s.classList.toggle('active', i===index);
+      });
+      current = index;
+    }
+    function next(){ show((current+1) % slides.length); }
+    function prev(){ show((current-1+slides.length) % slides.length); }
+    var autoplay = setInterval(next, 6000);
+    if(nextBtn) nextBtn.addEventListener('click', function(){ clearInterval(autoplay); next(); });
+    if(prevBtn) prevBtn.addEventListener('click', function(){ clearInterval(autoplay); prev(); });
   }
-  function next(){ show((current+1) % slides.length); }
-  function prev(){ show((current-1+slides.length) % slides.length); }
-  var autoplay = setInterval(next, 6000);
-  if(nextBtn) nextBtn.addEventListener('click', function(){ clearInterval(autoplay); next(); });
-  if(prevBtn) prevBtn.addEventListener('click', function(){ clearInterval(autoplay); prev(); });
+
+  // Floating contact toggle logic
+  const toggleButton = document.querySelector(".floating-contact-toggle");
+  const floatingContact = document.querySelector(".floating-contact");
+  if (toggleButton && floatingContact) {
+    toggleButton.addEventListener("click", function() {
+      floatingContact.classList.toggle("is-active");
+    });
+  }
 
   // Stats section: animate numbers when visible
   var statsSection = document.querySelector('.stats-section');
@@ -133,6 +144,21 @@ document.addEventListener('keydown', function(e){
 
 // Admin cards fade-in with stagger
 document.addEventListener('DOMContentLoaded', function(){
+  // Back to top button logic
+  const backToTop = document.getElementById('backToTop');
+  if (backToTop) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+    backToTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   var adminSection = document.querySelector('.admin-section');
   if(!adminSection) return;
   var cards = adminSection.querySelectorAll('.admin-card');

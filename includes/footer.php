@@ -16,17 +16,17 @@
         <ul class="footer-links list-unstyled mb-0">
           <li><a href="index.php">Home</a></li>
           <li><a href="about.php">About</a></li>
-          <li><a href="academics.php">Academics</a></li>
-          <li><a href="admission.php">Admission</a></li>
+          <li><a href="academic.php">Academics</a></li>
+          <li><a href="admissions.php">Admissions</a></li>
         </ul>
       </div>
 
       <div class="col-6 col-lg-2">
         <h6 class="footer-title">Explore</h6>
         <ul class="footer-links list-unstyled mb-0">
-          <li><a href="director.php">Director</a></li>
+          <li><a href="founder.php">Founder</a></li>
           <li><a href="gallery.php">Gallery</a></li>
-          <li><a href="contact.php">Contact</a></li>
+          <li><a href="contacts.php">Contact</a></li>
           <li><a href="https://portal.kingdomfoundationinstituteinc.org/login.php" target="_blank">E-Portal</a></li>
           <li><a href="admin/login.php"><i class="bi bi-lock-fill me-1"></i>Admin</a></li>
         </ul>
@@ -80,19 +80,6 @@
 </div>
 
 <!-- ================= SCRIPTS ================= -->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const toggleButton = document.querySelector(".floating-contact-toggle");
-  const floatingContact = document.querySelector(".floating-contact");
-
-  if (toggleButton && floatingContact) {
-    toggleButton.addEventListener("click", function() {
-      floatingContact.classList.toggle("is-active");
-    });
-  }
-});
-</script>
-
 
 <!-- Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
