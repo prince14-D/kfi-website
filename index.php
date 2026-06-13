@@ -1,11 +1,11 @@
 <?php include 'includes/header.php'; ?>
 <section class="hero-slider">
-  <div class="slide active" style="background-image:url('assets/images/banner2.jpeg')">
+  <div class="slide active" style="background-image:url('assets/images/banner-kfi.jpg')">
     <div class="overlay"></div>
     <div class="slide-inner container">
       <p class="slide-kicker">Welcome to Kingdom Foundation Institute</p>
-      <h1>Building high-quality academic and character foundations grounded in a biblical worldview.</h1>
-      <p>We provide a supportive learning environment where every student is encouraged to grow with confidence, discipline, and purpose.</p>
+      <h1>Building academic excellence and strong Christian character.</h1>
+      <p></p>
       <div class="hero-cta">
         <a href="admissions.php" class="hero-btn hero-btn-primary">Apply Now</a>
         <a href="about.php" class="hero-btn hero-btn-secondary">Learn More</a>
@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-  <div class="slide" style="background-image:url('assets/images/banner2.jpeg')">
+  <div class="slide" style="background-image:url('assets/images/banner-kfi-1.jpg')">
     <div class="overlay"></div>
     <div class="slide-inner container">
       <p class="slide-kicker">Join the KFI Community</p>

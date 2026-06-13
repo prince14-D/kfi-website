@@ -19,7 +19,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <div id="splash-screen" aria-hidden="true">
   <img src="assets/images/logo.png" alt="Kingdom Foundation Institute logo">
   <h3>Kingdom Foundation Institute, Inc.</h3>
-  <p class="splash-tagline"> Fostering a culture of excellence in nurturing the heart and mind.</p>
+  <p class="splash-tagline"> CULTURE OF EXCELLENCE.</p>
 </div>
 <?php endif; ?>
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top site-navbar">
