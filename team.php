@@ -1,105 +1,84 @@
-<?php include 'includes/header.php'; ?>
+<?php
+require_once 'includes/storage_helper.php';
+$team_members = get_all_team_members();
+$team_groups = ['Board Member', 'Administration', 'Staff', 'Lecturer', 'Teacher'];
+include 'includes/header.php';
+?>
 
-<!-- Hero Banner -->
-<section class="about-hero" style="background: linear-gradient(135deg, rgba(0,0,57,0.75), rgba(0,0,142,0.75)), url('assets/images/banner3.jpeg') center/cover; color: #fff; padding: 5rem 1rem; text-align: center;">
+<section class="team-hero">
   <div class="container">
-    <h1 class="display-4 fw-bold mb-3">Meet Our Dedicated Team</h1>
-    <p class="lead" style="max-width: 60ch; margin: 0 auto; font-size: 1.1rem;">Our passionate educators and leaders are committed to nurturing every student's potential and fostering a culture of excellence.</p>
+    <span class="section-eyebrow">Our People</span>
+    <h1>Meet Our Dedicated Team</h1>
+    <p>Our educators and leaders are committed to nurturing every student's potential and fostering a culture of excellence.</p>
   </div>
 </section>
 
-<!-- Team Section -->
-<section class="py-5 admin-section about-admin-section">
+<section class="team-directory-section py-5">
   <div class="container">
     <div class="text-center mb-5">
-      <span class="section-eyebrow">Our Leadership</span>
-      <h2 class="section-title mb-3">The KFI Leadership Team</h2>
-      <p class="text-muted mx-auto" style="max-width: 700px;">Our dedicated team of administrators and educators work tirelessly to provide a supportive and enriching environment for all students.</p>
+      <span class="section-eyebrow">Team Directory</span>
+      <h2 class="section-title mb-3">Board, Administration, Staff & Faculty</h2>
+      <p class="text-muted mx-auto" style="max-width: 760px;">Explore the people who guide governance, administration, teaching, and student support across KFI.</p>
     </div>
 
-    <div class="row g-4 justify-content-center">
+    <ul class="team-filter-pills" role="list">
+      <?php foreach ($team_groups as $group): ?>
+        <li><a href="#<?php echo strtolower(str_replace(' ', '-', $group)); ?>"><?php echo htmlspecialchars($group); ?></a></li>
+      <?php endforeach; ?>
+    </ul>
 
-      <div class="col-md-6 col-lg-4">
-        <div class="admin-card text-center">
-          <div class="admin-photo-wrap">
-            <img src="assets/images/founder.jpg" class="team-photo" alt="Mrs. Comfort Enders">
+    <?php foreach ($team_groups as $group): ?>
+      <?php
+        $group_members = array_values(array_filter($team_members, function($member) use ($group) {
+          return ($member['person_type'] ?? 'Staff') === $group;
+        }));
+      ?>
+      <?php if (!empty($group_members)): ?>
+        <div class="team-group-block" id="<?php echo strtolower(str_replace(' ', '-', $group)); ?>">
+          <div class="team-group-heading">
+            <span><?php echo htmlspecialchars($group); ?></span>
+            <strong><?php echo count($group_members); ?> profile<?php echo count($group_members) === 1 ? '' : 's'; ?></strong>
           </div>
-          <span class="admin-badge">Executive Leadership</span>
-          <h5 class="mt-3 mb-1">Mrs. Comfort Enders, M.Ed</h5>
-          <span class="admin-role">Founding Principal / Chief Executive Consultant</span>
-          <div class="d-flex justify-content-center gap-3 mt-2 mb-3">
-            <a href="mailto:cenders8@gmail.com" class="text-decoration-none" style="color: var(--accent);" title="Email Mrs. Enders">
-              <i class="bi bi-envelope-fill fs-5"></i>
-            </a>
-            <a href="tel:+2310770143081" class="text-decoration-none" style="color: var(--accent);" title="Call Mrs. Enders">
-              <i class="bi bi-telephone-fill fs-5"></i>
-            </a>
+          <div class="row g-4 justify-content-center">
+            <?php foreach ($group_members as $index => $member): ?>
+              <?php $modal_id = 'teamProfile' . preg_replace('/[^a-zA-Z0-9]/', '', $member['id'] ?? (string)$index); ?>
+              <div class="col-md-6 col-xl-4">
+                <article class="team-profile-card">
+                  <div class="team-profile-image">
+                    <img src="<?php echo htmlspecialchars(news_image_url($member['image'] ?? '')); ?>" alt="<?php echo htmlspecialchars($member['name'] ?? 'Team member'); ?>">
+                  </div>
+                  <div class="team-profile-body">
+                    <span class="team-profile-badge"><?php echo htmlspecialchars($member['department'] ?? 'Leadership'); ?></span>
+                    <h3><?php echo htmlspecialchars($member['name'] ?? 'Team Member'); ?></h3>
+                    <p class="team-profile-role"><?php echo htmlspecialchars($member['role'] ?? ''); ?></p>
+                    <p class="team-profile-bio"><?php echo htmlspecialchars(excerpt_text($member['bio'] ?? '', 118)); ?></p>
+                    <button type="button" class="btn btn-school team-profile-button" data-bs-toggle="modal" data-bs-target="#<?php echo htmlspecialchars($modal_id); ?>">
+                      View Profile
+                    </button>
+                  </div>
+                </article>
+              </div>
+              <div class="modal fade team-profile-modal" id="<?php echo htmlspecialchars($modal_id); ?>" tabindex="-1" aria-labelledby="<?php echo htmlspecialchars($modal_id); ?>Label" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                  <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="team-modal-grid">
+                      <img src="<?php echo htmlspecialchars(news_image_url($member['image'] ?? '')); ?>" alt="<?php echo htmlspecialchars($member['name'] ?? 'Team member'); ?>">
+                      <div>
+                        <span class="team-profile-badge"><?php echo htmlspecialchars(($member['person_type'] ?? 'Staff') . ' / ' . ($member['department'] ?? 'Leadership')); ?></span>
+                        <h3 id="<?php echo htmlspecialchars($modal_id); ?>Label"><?php echo htmlspecialchars($member['name'] ?? 'Team Member'); ?></h3>
+                        <p class="team-profile-role"><?php echo htmlspecialchars($member['role'] ?? ''); ?></p>
+                        <p class="team-modal-bio"><?php echo nl2br(htmlspecialchars($member['bio'] ?? '')); ?></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
           </div>
-          <p class="admin-card-note">Mrs. Enders founded KFI with a vision to provide values-driven education that balances academic rigor with character formation. She provides strategic leadership across programs and community engagement.</p>
         </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="admin-card text-center">
-          <div class="admin-photo-wrap">
-            <img src="assets/images/programd.png" class="team-photo" alt="Jonathan Enders">
-          </div>
-          <span class="admin-badge">Program Direction</span>
-          <h5 class="mt-3 mb-1">Jonathan Enders, B.Sc</h5>
-          <span class="admin-role">K-12 Program Director</span>
-          <div class="d-flex justify-content-center gap-3 mt-2 mb-3">
-            <a href="mailto:jonjcom@yahoo.com" class="text-decoration-none" style="color: var(--accent);" title="Email Mr. Enders">
-              <i class="bi bi-envelope-fill fs-5"></i>
-            </a>
-            <a href="tel:+2310886553011" class="text-decoration-none" style="color: var(--accent);" title="Call Mr. Enders">
-              <i class="bi bi-telephone-fill fs-5"></i>
-            </a>
-          </div>
-          <p class="admin-card-note">Jonathan oversees curriculum development, teacher training, and program delivery from Early Years through Upper Elementary. He leads KFI's academic improvement initiatives.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="admin-card text-center">
-          <div class="admin-photo-wrap">
-            <img src="assets/images/princapal.jpg" class="team-photo" alt="Benjamin Geeton">
-          </div>
-          <span class="admin-badge">Campus Leadership</span>
-          <h5 class="mt-3 mb-1">Benjamin Geeton, M.A.</h5>
-          <span class="admin-role">K-12 Building Principal</span>
-          <div class="d-flex justify-content-center gap-3 mt-2 mb-3">
-            <a href="mailto:info@kingdomfoundationinstituteinc.org" class="text-decoration-none" style="color: var(--accent);" title="Email Mr. Geeton">
-              <i class="bi bi-envelope-fill fs-5"></i>
-            </a>
-            <a href="tel:+231770372231" class="text-decoration-none" style="color: var(--accent);" title="Call Mr. Geeton">
-              <i class="bi bi-telephone-fill fs-5"></i>
-            </a>
-          </div>
-          <p class="admin-card-note">Benjamin manages daily school operations, student welfare, and supports teachers to ensure high-quality classroom instruction and a safe learning environment.</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="admin-card text-center">
-          <div class="admin-photo-wrap">
-            <img src="assets/images/Mr. James M. Folley .jpeg" class="team-photo" alt="Mr. James M. Folley">
-          </div>
-          <span class="admin-badge">Instructional Leadership</span>
-          <h5 class="mt-3 mb-1">Mr. James M. Folley</h5>
-          <span class="admin-role">Vice Principal for Instruction</span>
-          <div class="d-flex justify-content-center gap-3 mt-2 mb-3">
-            <a href="mailto:info@kingdomfoundationinstituteinc.org" class="text-decoration-none" style="color: var(--accent);" title="Email Mr. Folley">
-              <i class="bi bi-envelope-fill fs-5"></i>
-            </a>
-            <a href="tel:+231770372231" class="text-decoration-none" style="color: var(--accent);" title="Call Mr. Folley">
-              <i class="bi bi-telephone-fill fs-5"></i>
-            </a>
-          </div>
-          <p class="admin-card-note">Mr. Folley supports curriculum delivery, teacher mentoring, and academic coaching to drive consistent instructional quality across classrooms.</p>
-        </div>
-      </div>
-
-    </div>
+      <?php endif; ?>
+    <?php endforeach; ?>
 
     <div class="text-center mt-5">
       <a href="about.php" class="btn btn-school btn-lg">

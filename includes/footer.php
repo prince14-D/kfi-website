@@ -58,7 +58,7 @@
     </div>
   </div>
 
-  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+  <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
     <i class="bi bi-arrow-up"></i>
   </button>
 </footer>

@@ -1,0 +1,26 @@
+[
+    {
+        "id": "news_welcome_2026",
+        "title": "Admissions Now Open for the New Academic Year",
+        "date": "2026-06-13",
+        "category": "Admissions",
+        "summary": "Kingdom Foundation Institute is welcoming families to begin the admissions process for the new academic year. Parents can contact the office or visit the admissions page for requirements and next steps.",
+        "image": "assets/images/banner-kfi.jpg"
+    },
+    {
+        "id": "news_celsin_2026",
+        "title": "KFI Strengthens Christian School Development Services",
+        "date": "2026-06-10",
+        "category": "Community",
+        "summary": "Through CELSIN-KFI, the institute continues to support schools with networking, professional development, accreditation guidance, and practical school improvement consultancy.",
+        "image": "assets/images/banner3.jpeg"
+    },
+    {
+        "id": "news_foundation_2026",
+        "title": "Building Excellence Through Character and Learning",
+        "date": "2026-06-05",
+        "category": "Academic Achievement",
+        "summary": "KFI remains committed to learner-centered teaching, strong academic foundations, and Christian character development across its K-12 programs.",
+        "image": "assets/images/banner2.jpeg"
+    }
+]

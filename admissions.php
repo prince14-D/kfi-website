@@ -1,4 +1,25 @@
-<?php include 'includes/header.php'; ?>
+<?php
+require_once 'includes/storage_helper.php';
+$application_success = '';
+$application_error = '';
+
+if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST' && isset($_POST['submit_application'])) {
+  $required_fields = ['student_name', 'grade', 'parent_name', 'phone'];
+  $missing_fields = array_filter($required_fields, function($field) {
+    return trim($_POST[$field] ?? '') === '';
+  });
+
+  if (!empty($missing_fields)) {
+    $application_error = 'Please complete the required fields before submitting.';
+  } else {
+    $saved = save_admission_application($_POST);
+    $application_success = $saved ? 'Thank you. Your admission inquiry has been submitted successfully.' : '';
+    $application_error = $saved ? '' : 'We could not save your application right now. Please call the admissions office.';
+  }
+}
+
+include 'includes/header.php';
+?>
 
 <!-- Hero Banner -->
 <section class="about-hero" style="background: linear-gradient(135deg, rgba(0,0,57,0.75), rgba(0,0,142,0.75)), url('assets/images/banner2.jpeg') center/cover; color: #fff; padding: 5rem 1rem; text-align: center;">
@@ -87,8 +108,82 @@
               <span><strong>Office Hours:</strong> Mon - Fri, 8:00 AM - 4:00 PM</span>
             </div>
           </div>
-          <a href="contact.php" class="btn btn-warning w-100 py-3 fw-bold">Enquire About Openings</a>
+          <a href="#admission-form" class="btn btn-warning w-100 py-3 fw-bold">Start Online Inquiry</a>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="admission-form" class="admission-form-section py-5">
+  <div class="container">
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-5">
+        <span class="section-eyebrow">Apply Online</span>
+        <h2 class="section-title mb-3">Admission Inquiry Form</h2>
+        <p class="text-muted">Share your student and parent details with our admissions office. A staff member will follow up with the next steps and required documents.</p>
+        <div class="admission-form-note">
+          <i class="bi bi-shield-check"></i>
+          <span>Your submission goes directly to the school admin dashboard for review.</span>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <form method="post" class="admission-form-card">
+          <?php if ($application_success): ?>
+            <div class="alert alert-success"><?php echo htmlspecialchars($application_success); ?></div>
+          <?php endif; ?>
+          <?php if ($application_error): ?>
+            <div class="alert alert-danger"><?php echo htmlspecialchars($application_error); ?></div>
+          <?php endif; ?>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="student_name" class="form-label">Student Name *</label>
+              <input type="text" name="student_name" id="student_name" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label for="grade" class="form-label">Grade Applying For *</label>
+              <select name="grade" id="grade" class="form-select" required>
+                <option value="">Select grade</option>
+                <option>Early Childhood</option>
+                <option>Kindergarten</option>
+                <option>Grade 1</option>
+                <option>Grade 2</option>
+                <option>Grade 3</option>
+                <option>Grade 4</option>
+                <option>Grade 5</option>
+                <option>Grade 6</option>
+                <option>Junior High</option>
+                <option>Senior High</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="dob" class="form-label">Date of Birth</label>
+              <input type="date" name="dob" id="dob" class="form-control">
+            </div>
+            <div class="col-md-6">
+              <label for="previous_school" class="form-label">Previous School</label>
+              <input type="text" name="previous_school" id="previous_school" class="form-control">
+            </div>
+            <div class="col-md-6">
+              <label for="parent_name" class="form-label">Parent/Guardian Name *</label>
+              <input type="text" name="parent_name" id="parent_name" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label for="phone" class="form-label">Phone Number *</label>
+              <input type="tel" name="phone" id="phone" class="form-control" required>
+            </div>
+            <div class="col-md-12">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" name="email" id="email" class="form-control">
+            </div>
+            <div class="col-12">
+              <label for="message" class="form-label">Additional Notes</label>
+              <textarea name="message" id="message" class="form-control" rows="4"></textarea>
+            </div>
+          </div>
+          <button type="submit" name="submit_application" class="btn btn-school btn-lg w-100 mt-4">Submit Inquiry</button>
+        </form>
       </div>
     </div>
   </div>

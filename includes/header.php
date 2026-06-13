@@ -6,7 +6,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kingdom Foundation Institute,</title>
+  <title>Kingdom Foundation Institute</title>
   <meta name="theme-color" content="#00008E">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -40,13 +40,21 @@ $currentPage = basename($_SERVER['PHP_SELF']);
       <ul class="navbar-nav ms-auto gap-2 gap-lg-1">
         <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'index.php' ? 'active' : ''; ?>" href="index.php">Home</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'about.php' ? 'active' : ''; ?>" href="about.php">About</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle <?php echo in_array($currentPage, ['team.php', 'accreditation.php', 'gallery.php']) ? 'active' : ''; ?>" href="#" id="pagesMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="pagesMenu">
+            <li><a class="dropdown-item <?php echo $currentPage === 'team.php' ? 'active' : ''; ?>" href="team.php">Team</a></li>
+            <li><a class="dropdown-item <?php echo $currentPage === 'accreditation.php' ? 'active' : ''; ?>" href="accreditation.php">Accreditation</a></li>
+            <li><a class="dropdown-item <?php echo $currentPage === 'gallery.php' ? 'active' : ''; ?>" href="gallery.php">Gallery</a></li>
+          </ul>
+        </li>
         <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'academic.php' ? 'active' : ''; ?>" href="academic.php">Services</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'admissions.php' ? 'active' : ''; ?>" href="admissions.php">Admissions</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'news.php' ? 'active' : ''; ?>" href="news.php">News</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'donate.php' ? 'active' : ''; ?>" href="donate.php">Donate</a></li>
         <li class="nav-item"><a class="nav-link <?php echo $currentPage === 'contacts.php' ? 'active' : ''; ?>" href="contacts.php">Contact</a></li>
         <li class="nav-item">
-          <a href="#" class="btn btn-warning fw-bold px-3 ms-lg-3">E-Portal</a>
+          <a href="https://portal.kingdomfoundationinstituteinc.org/login.php" target="_blank" rel="noopener noreferrer" class="btn btn-warning fw-bold px-3 ms-lg-3">E-Portal</a>
         </li>
       </ul>
     </div>

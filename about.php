@@ -1,4 +1,8 @@
-<?php include 'includes/header.php'; ?>
+<?php
+require_once 'includes/storage_helper.php';
+$about_team = get_featured_team_members(4);
+include 'includes/header.php';
+?>
 
 <!-- Hero Banner -->
 <section class="about-hero" style="background: linear-gradient(135deg, rgba(0,0,57,0.75), rgba(0,0,142,0.75)), url('assets/images/banner3.jpeg') center/cover; color: #fff; padding: 5rem 1rem; text-align: center;">
@@ -231,54 +235,21 @@
     </div>
 
     <div class="row g-4 justify-content-center admin-team-grid">
-
-      <div class="col-12 col-md-4 col-lg-3">
-        <div class="admin-card text-center">
-          <div class="admin-photo-wrap">
-            <img src="assets/images/founder.jpg" class="team-photo" alt="Mrs. Comfort Enders">
-          </div>
-          <span class="admin-badge">Executive Leadership</span>
-          <h6 class="mt-3 mb-1">Mrs. Comfort Enders, M.Ed</h6>
-          <span class="admin-role">Chief Executive Consultant</span>
-          <p class="admin-card-note">Provides strategic guidance for school culture, leadership development, and institutional growth.</p>
+      <?php foreach ($about_team as $member): ?>
+        <div class="col-12 col-md-4 col-lg-3">
+          <article class="about-admin-card">
+            <div class="about-admin-photo">
+              <img src="<?php echo htmlspecialchars(news_image_url($member['image'] ?? '')); ?>" alt="<?php echo htmlspecialchars($member['name'] ?? 'Team member'); ?>">
+            </div>
+            <div class="about-admin-copy">
+              <span><?php echo htmlspecialchars($member['person_type'] ?? 'Staff'); ?></span>
+              <h3><?php echo htmlspecialchars($member['name'] ?? 'Team Member'); ?></h3>
+              <p class="about-admin-role"><?php echo htmlspecialchars($member['role'] ?? ''); ?></p>
+              <p><?php echo htmlspecialchars(excerpt_text($member['bio'] ?? '', 95)); ?></p>
+            </div>
+          </article>
         </div>
-      </div>
-
-      <div class="col-12 col-md-4 col-lg-3">
-        <div class="admin-card text-center">
-          <div class="admin-photo-wrap">
-            <img src="assets/images/programd.png" class="team-photo" alt="Jonathan Enders">
-          </div>
-          <span class="admin-badge">Program Direction</span>
-          <h6 class="mt-3 mb-1">Jonathan Enders, B.Sc</h6>
-          <span class="admin-role">K-12 Program Director</span>
-          <p class="admin-card-note">Leads program planning, teacher support, and academic improvement across grade levels.</p>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-4 col-lg-3">
-        <div class="admin-card text-center">
-          <div class="admin-photo-wrap">
-            <img src="assets/images/princapal.jpg" class="team-photo" alt="Benjamin Geeton">
-          </div>
-          <span class="admin-badge">Campus Leadership</span>
-          <h6 class="mt-3 mb-1">Benjamin Geeton, M.A.</h6>
-          <span class="admin-role">K-12 Building Principal</span>
-          <p class="admin-card-note">Oversees daily school operations, student support, and classroom excellence.</p>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-4 col-lg-3">
-        <div class="admin-card text-center">
-          <div class="admin-photo-wrap admin-photo-placeholder" aria-hidden="true">
-            <span>JF</span>
-          </div>
-          <span class="admin-badge">Instruction</span>
-          <h6 class="mt-3 mb-1">Mr. James M. Folley</h6>
-          <span class="admin-role">Vice Principal For Instructions</span>
-          <p class="admin-card-note">Supports lesson quality, teacher mentoring, and consistent instructional practice.</p>
-        </div>
-      </div>
+      <?php endforeach; ?>
 
       <div class="col-12">
         <div class="admin-summary-band">

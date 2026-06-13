@@ -1,4 +1,10 @@
-<?php include 'includes/header.php'; ?>
+<?php
+require_once 'includes/storage_helper.php';
+$home_news = get_recent_news(3);
+$home_team = get_featured_team_members(4);
+$home_gallery = get_featured_gallery_items(6);
+include 'includes/header.php';
+?>
 <section class="hero-slider">
   <div class="slide active" style="background-image:url('assets/images/banner-kfi.jpg')">
     <div class="overlay"></div>
@@ -54,7 +60,7 @@
 
         <div class="col-lg-4 text-center mt-4 mt-lg-0">
           <a href="admissions.php" class="btn btn-school btn-lg w-100 mb-2">Start Application</a>
-          <a href="contact.php" class="btn btn-outline-light btn-lg w-100">Talk To Us</a>
+          <a href="contacts.php" class="btn btn-outline-light btn-lg w-100">Talk To Us</a>
         </div>
       </div>
     </div>
@@ -95,6 +101,43 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="home-news-section py-5" data-animate>
+  <div class="container">
+    <div class="section-heading-row">
+      <div>
+        <span class="section-eyebrow">Latest News</span>
+        <h2 class="section-title mb-2">News & Updates</h2>
+        <p class="text-muted mb-0">Follow school announcements, student achievements, events, and community updates from KFI.</p>
+      </div>
+      <a href="news.php" class="btn btn-outline-primary news-view-all">View All News <i class="bi bi-arrow-right-short" aria-hidden="true"></i></a>
+    </div>
+
+    <?php if (empty($home_news)): ?>
+      <div class="news-empty-state mt-4">No news has been published yet. Please check back soon.</div>
+    <?php else: ?>
+      <div class="row g-4 mt-1">
+        <?php foreach ($home_news as $post): ?>
+          <div class="col-md-6 col-lg-4">
+            <article class="news-card">
+              <a href="news.php" class="news-card-image">
+                <img src="<?php echo htmlspecialchars(news_image_url($post['image'] ?? '')); ?>" alt="<?php echo htmlspecialchars($post['title'] ?? 'KFI news'); ?>">
+              </a>
+              <div class="news-card-body">
+                <div class="news-meta">
+                  <span><?php echo htmlspecialchars(date('M d, Y', strtotime($post['date'] ?? 'now'))); ?></span>
+                  <span><?php echo htmlspecialchars($post['category'] ?? 'Announcement'); ?></span>
+                </div>
+                <h3><a href="news.php"><?php echo htmlspecialchars($post['title'] ?? 'Untitled news'); ?></a></h3>
+                <p><?php echo htmlspecialchars(excerpt_text($post['summary'] ?? '', 135)); ?></p>
+              </div>
+            </article>
+          </div>
+        <?php endforeach; ?>
+      </div>
+    <?php endif; ?>
   </div>
 </section>
 
@@ -147,54 +190,16 @@
   <div class="container text-center">
     <h2 class="section-title">Activities</h2>
     <div class="row g-3 mt-2">
-      <div class="col-md-4">
-        <div class="gallery-item">
-          <a href="#" class="gallery-link" data-src="assets/images/banner2.jpeg" data-caption="Activity one">
-            <img src="assets/images/banner2.jpeg" class="gallery-img" alt="Activity one">
-            <div class="gallery-overlay"><span class="zoom-icon">🔍</span></div>
-          </a>
+      <?php foreach ($home_gallery as $item): ?>
+        <div class="col-md-4">
+          <div class="gallery-item">
+            <a href="#" class="gallery-link" data-src="<?php echo htmlspecialchars(news_image_url($item['image'] ?? '')); ?>" data-caption="<?php echo htmlspecialchars($item['caption'] ?? $item['title'] ?? 'KFI activity'); ?>">
+              <img src="<?php echo htmlspecialchars(news_image_url($item['image'] ?? '')); ?>" class="gallery-img" alt="<?php echo htmlspecialchars($item['title'] ?? 'KFI activity'); ?>">
+              <div class="gallery-overlay"><span class="zoom-icon"><i class="bi bi-search"></i></span></div>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="gallery-item">
-          <a href="#" class="gallery-link" data-src="assets/images/banner2.jpeg" data-caption="Activity two">
-            <img src="assets/images/banner2.jpeg" class="gallery-img" alt="Activity two">
-            <div class="gallery-overlay"><span class="zoom-icon">🔍</span></div>
-          </a>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="gallery-item">
-          <a href="#" class="gallery-link" data-src="assets/images/banner3.jpeg" data-caption="Activity three">
-            <img src="assets/images/banner3.jpeg" class="gallery-img" alt="Activity three">
-            <div class="gallery-overlay"><span class="zoom-icon">🔍</span></div>
-          </a>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="gallery-item">
-          <a href="#" class="gallery-link" data-src="assets/images/banner3.jpeg" data-caption="Activity four">
-            <img src="assets/images/banner3.jpeg" class="gallery-img" alt="Activity four">
-            <div class="gallery-overlay"><span class="zoom-icon">🔍</span></div>
-          </a>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="gallery-item">
-          <a href="#" class="gallery-link" data-src="assets/images/banner3.jpeg" data-caption="Activity five">
-            <img src="assets/images/banner3.jpeg" class="gallery-img" alt="Activity five">
-            <div class="gallery-overlay"><span class="zoom-icon">🔍</span></div>
-          </a>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="gallery-item">
-          <a href="#" class="gallery-link" data-src="assets/images/banner3.jpeg" data-caption="Activity six">
-            <img src="assets/images/banner3.jpeg" class="gallery-img" alt="Activity six">
-            <div class="gallery-overlay"><span class="zoom-icon">🔍</span></div>
-          </a>
-        </div>
-      </div>
+      <?php endforeach; ?>
     </div>
     <a href="gallery.php" class="btn btn-school mt-4">View Full Gallery</a>
   </div>
@@ -279,47 +284,17 @@
     <p class="text-center text-muted mb-5 admin-intro">The dedicated leaders who guide our school every day.</p>
     <div class="row g-4 justify-content-center">
 
-      <div class="col-12 col-md-4 col-lg-3">
-        <div class="admin-card text-center">
-          <div class="admin-photo-wrap">
-            <img src="assets/images/founder.jpg" class="team-photo" alt="Principal">
+      <?php foreach ($home_team as $member): ?>
+        <div class="col-12 col-md-4 col-lg-3">
+          <div class="admin-card text-center">
+            <div class="admin-photo-wrap">
+              <img src="<?php echo htmlspecialchars(news_image_url($member['image'] ?? '')); ?>" class="team-photo" alt="<?php echo htmlspecialchars($member['name'] ?? 'Team member'); ?>">
+            </div>
+            <h6 class="mt-3 mb-1"><?php echo htmlspecialchars($member['name'] ?? 'Team Member'); ?></h6>
+            <span class="admin-role"><?php echo htmlspecialchars($member['role'] ?? ''); ?></span>
           </div>
-          <h6 class="mt-3 mb-1">Mrs. Comfort Enders, M.Ed</h6>
-          <span class="admin-role">Chief Executive Consultant</span>
         </div>
-      </div>
-
-      <div class="col-12 col-md-4 col-lg-3">
-        <div class="admin-card text-center">
-          <div class="admin-photo-wrap">
-            <img src="assets/images/programd.png" class="team-photo" alt="Chief Learning Officer">
-          </div>
-          <h6 class="mt-3 mb-1">Jonathan Enders, B.Sc</h6>
-          <span class="admin-role">K-12 Program Director</span>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-4 col-lg-3">
-        <div class="admin-card text-center">
-          <div class="admin-photo-wrap">
-            <img src="assets/images/princapal.jpg" class="team-photo" alt="Academic Dean">
-          </div>
-          <h6 class="mt-3 mb-1">Benjamin Geeton, Phd.</h6>
-          <span class="admin-role">K-12 Building Principal</span>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-4 col-lg-3">
-        <div class="admin-card text-center">
-          <div class="admin-photo-wrap">
-            <img src="assets/images/Mr. James M. Folley .jpeg" class="team-photo" alt="Vice Principal For Instructions">
-          </div>
-          <h6 class="mt-3 mb-1">Mr. James M. Folley</h6>
-          <span class="admin-role">Vice Principal For Instructions</span>
-        </div>
-      </div>
-
-
+      <?php endforeach; ?>
 
       <div class="col-12 text-center">
         <a href="team.php" class="btn btn-school mt-3">View More Team</a>

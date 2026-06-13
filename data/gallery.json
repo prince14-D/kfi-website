@@ -1,0 +1,26 @@
+[
+    {
+        "id": "gallery_activity_one",
+        "title": "Campus Activities",
+        "category": "Campus Life",
+        "date": "2026-06-13",
+        "caption": "Students learning, serving, and growing together at KFI.",
+        "image": "assets/images/banner2.jpeg"
+    },
+    {
+        "id": "gallery_school_event",
+        "title": "School Event",
+        "category": "Events",
+        "date": "2026-06-10",
+        "caption": "Community moments that strengthen school spirit.",
+        "image": "assets/images/banner3.jpeg"
+    },
+    {
+        "id": "gallery_campus",
+        "title": "KFI Campus",
+        "category": "Campus",
+        "date": "2026-06-05",
+        "caption": "A caring learning environment for academic excellence and character formation.",
+        "image": "assets/images/banner-kfi.jpg"
+    }
+]

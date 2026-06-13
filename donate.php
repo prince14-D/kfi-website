@@ -1,89 +1,120 @@
 <?php include 'includes/header.php'; ?>
 
-<!-- Hero Banner -->
-<section class="about-hero" style="background: linear-gradient(135deg, rgba(0,0,57,0.75), rgba(0,0,142,0.75)), url('assets/images/banner2.jpeg') center/cover; color: #fff; padding: 5rem 1rem; text-align: center;">
+<section class="donation-hero">
   <div class="container">
-    <h1 class="display-4 fw-bold mb-3">Support KFI's Mission</h1>
-    <p class="lead" style="max-width: 60ch; margin: 0 auto; font-size: 1.1rem;">Your generosity empowers us to provide quality education and nurture future leaders.</p>
-  </div>
-</section>
-
-<!-- Why Donate Section -->
-<section class="py-5 bg-white">
-  <div class="container">
-    <div class="text-center mb-5">
-      <span class="section-eyebrow">Make a Difference</span>
-      <h2 class="fw-bold mb-3" style="color: #000039; font-size: 2.2rem;">Why Your Support Matters</h2>
-      <p class="text-muted mx-auto" style="max-width: 700px;">At Kingdom Foundation Institute, every donation directly contributes to creating a brighter future for our students and community. Your support helps us maintain high academic standards, provide essential resources, and foster a nurturing environment.</p>
-    </div>
-
-    <div class="row g-4 text-center">
-      <div class="col-md-4">
-        <div class="p-4 rounded-4 shadow-sm border-top border-4 h-100" style="background: #f8fbff; border-color: #00008E !important;">
-          <div class="fs-1 mb-3">📚</div>
-          <h5 class="fw-bold" style="color: #000039;">Educational Resources</h5>
-          <p class="text-muted">Funding for textbooks, learning materials, and technology to enhance classroom experiences.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="p-4 rounded-4 shadow-sm border-top border-4 h-100" style="background: #f8fbff; border-color: #00008E !important;">
-          <div class="fs-1 mb-3">🎓</div>
-          <h5 class="fw-bold" style="color: #000039;">Student Scholarships</h5>
-          <p class="text-muted">Providing opportunities for deserving students who might otherwise not afford quality education.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="p-4 rounded-4 shadow-sm border-top border-4 h-100" style="background: #f8fbff; border-color: #00008E !important;">
-          <div class="fs-1 mb-3">🏫</div>
-          <h5 class="fw-bold" style="color: #000039;">Facility Improvements</h5>
-          <p class="text-muted">Supporting the maintenance and upgrade of our campus facilities for a better learning environment.</p>
-        </div>
+    <div class="donation-hero-content">
+      <span class="section-eyebrow">Partner With KFI</span>
+      <h1>Invest in Christian education, leadership, and school improvement.</h1>
+      <p>Your support helps Kingdom Foundation Institute strengthen learners, teachers, families, and partner schools through values-based education and practical school development.</p>
+      <div class="donation-hero-actions">
+        <a href="#ways-to-give" class="btn btn-light btn-lg">Ways to Give</a>
+        <a href="contacts.php" class="btn btn-outline-light btn-lg">Speak With Us</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- How to Donate Section -->
-<section class="py-5 bg-light">
+<section class="donation-impact-section py-5">
   <div class="container">
-    <div class="text-center mb-5">
-      <span class="section-eyebrow">Ways to Give</span>
-      <h2 class="fw-bold mb-3" style="color: #000039; font-size: 2.2rem;">How You Can Donate</h2>
-      <p class="text-muted mx-auto" style="max-width: 700px;">We offer several convenient ways for you to contribute to Kingdom Foundation Institute. Choose the option that works best for you.</p>
+    <div class="section-heading-row">
+      <div>
+        <span class="section-eyebrow">Funding Priorities</span>
+        <h2 class="section-title mb-2">Your gift strengthens more than one classroom.</h2>
+        <p class="text-muted mb-0">KFI is building a professional Christian education platform that serves students directly while also equipping schools and educators across communities.</p>
+      </div>
     </div>
 
-    <div class="row g-4 justify-content-center">
-      <div class="col-md-6 col-lg-5">
-        <div class="p-4 rounded-4 shadow-sm border h-100 text-center" style="background: #ffffff;">
-          <div class="fs-1 mb-3" style="color: #00008E;">🏦</div>
-          <h5 class="fw-bold mb-3" style="color: #000039;">Bank Transfer</h5>
-          <p class="text-muted">You can make a direct bank transfer to our official account. Please use "KFI Donation" as the reference.</p>
-          <ul class="list-unstyled text-start mx-auto" style="max-width: 300px;">
-            <li class="mb-2"><strong>Bank Name:</strong> Ecobank Liberia</li>
-            <li class="mb-2"><strong>Account Name:</strong> Kingdom Foundation Institute</li>
-            <li class="mb-2"><strong>Account Number:</strong> 0012014820123456</li>
-            <li><strong>SWIFT Code:</strong> ECOCLRLM</li>
+    <div class="row g-4 mt-1">
+      <div class="col-md-6 col-lg-3">
+        <article class="donation-priority-card">
+          <i class="bi bi-mortarboard-fill"></i>
+          <h3>Student Access</h3>
+          <p>Scholarships and support for families committed to quality, values-based education.</p>
+        </article>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <article class="donation-priority-card">
+          <i class="bi bi-person-workspace"></i>
+          <h3>Teacher Growth</h3>
+          <p>Training, mentoring, and professional development for stronger classroom practice.</p>
+        </article>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <article class="donation-priority-card">
+          <i class="bi bi-building-check"></i>
+          <h3>Facilities</h3>
+          <p>Campus improvements, learning spaces, and resources that support safe instruction.</p>
+        </article>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <article class="donation-priority-card">
+          <i class="bi bi-diagram-3-fill"></i>
+          <h3>School Network</h3>
+          <p>CELSIN-KFI services that connect Christian schools and support improvement systems.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ways-to-give" class="donation-method-section py-5">
+  <div class="container">
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-5">
+        <div class="donation-trust-panel">
+          <span class="section-eyebrow">Giving Channels</span>
+          <h2>Make a directed contribution.</h2>
+          <p>Donors may designate gifts toward student support, teacher development, facilities, school improvement services, or general operations.</p>
+          <ul>
+            <li>Transparent giving purpose</li>
+            <li>Official school account details</li>
+            <li>Follow-up confirmation from KFI</li>
           </ul>
         </div>
       </div>
-      <div class="col-md-6 col-lg-5">
-        <div class="p-4 rounded-4 shadow-sm border h-100 text-center" style="background: #ffffff;">
-          <div class="fs-1 mb-3" style="color: #CD1C18;">💳</div>
-          <h5 class="fw-bold mb-3" style="color: #000039;">Online Donation</h5>
-          <p class="text-muted">Coming soon! We are setting up a secure online platform for easy and quick donations.</p>
-          <a href="contacts.php" class="btn btn-school mt-3">Contact Us for Online Options</a>
+      <div class="col-lg-7">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <article class="donation-method-card">
+              <span><i class="bi bi-bank"></i></span>
+              <h3>Bank Transfer</h3>
+              <p>Please use a clear reference such as <strong>KFI Donation</strong> and contact the office after sending.</p>
+              <dl>
+                <dt>Bank Name</dt>
+                <dd>Ecobank Liberia</dd>
+                <dt>Account Name</dt>
+                <dd>Kingdom Foundation Institute</dd>
+                <dt>Account Number</dt>
+                <dd>0012014820123456</dd>
+                <dt>SWIFT Code</dt>
+                <dd>ECOCLRLM</dd>
+              </dl>
+            </article>
+          </div>
+          <div class="col-md-6">
+            <article class="donation-method-card donation-method-accent">
+              <span><i class="bi bi-chat-dots-fill"></i></span>
+              <h3>Donor Coordination</h3>
+              <p>For institutional partnerships, in-kind donations, recurring support, or project-specific giving, our office can coordinate details directly.</p>
+              <a href="contacts.php" class="btn btn-school w-100">Contact Donation Office</a>
+            </article>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Call to Action Section -->
-<section class="py-5">
-  <div class="container text-center">
-    <h2 class="section-title">Your Contribution Makes a Difference</h2>
-    <p class="text-muted mb-4 mx-auto" style="max-width: 700px;">Every gift, no matter the size, helps us continue our mission of providing excellent, values-based education. Thank you for considering supporting Kingdom Foundation Institute.</p>
-    <a href="contacts.php" class="btn btn-school btn-lg">Get in Touch to Donate</a>
+<section class="donation-cta-band">
+  <div class="container">
+    <div class="donation-cta-panel">
+      <div>
+        <span class="section-eyebrow">Stewardship</span>
+        <h2>Thank you for helping build a stronger education future.</h2>
+        <p>Every gift helps KFI serve students with excellence and expand practical support for Christian schools.</p>
+      </div>
+      <a href="contacts.php" class="btn btn-light btn-lg">Start a Giving Conversation</a>
+    </div>
   </div>
 </section>
 

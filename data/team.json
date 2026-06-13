@@ -1,0 +1,38 @@
+[
+    {
+        "id": "team_comfort_enders",
+        "name": "Mrs. Comfort Enders, M.Ed",
+        "role": "Founding Principal / Chief Executive Consultant",
+        "person_type": "Board Member",
+        "department": "Executive Leadership",
+        "bio": "Mrs. Enders founded KFI with a vision to provide values-driven education that balances academic rigor with character formation. She provides strategic leadership across programs and community engagement.",
+        "email": "cenders8@gmail.com",
+        "phone": "+2310770143081",
+        "image": "assets/images/founder.jpg",
+        "sort_order": 1
+    },
+    {
+        "id": "team_jonathan_enders",
+        "name": "Jonathan Enders, B.Sc",
+        "role": "K-12 Program Director",
+        "person_type": "Staff",
+        "department": "Program Direction",
+        "bio": "Jonathan oversees curriculum development, teacher training, and program delivery from Early Years through Upper Elementary. He leads KFI's academic improvement initiatives.",
+        "email": "jonjcom@yahoo.com",
+        "phone": "+2310886553011",
+        "image": "assets/images/programd.png",
+        "sort_order": 2
+    },
+    {
+        "id": "team_benjamin_geeton",
+        "name": "Benjamin Geeton, M.A.",
+        "role": "K-12 Building Principal",
+        "person_type": "Staff",
+        "department": "Campus Leadership",
+        "bio": "Benjamin manages daily school operations, student welfare, and supports teachers to ensure high-quality classroom instruction and a safe learning environment.",
+        "email": "info@kingdomfoundationinstituteinc.org",
+        "phone": "+231770372231",
+        "image": "assets/images/princapal.jpg",
+        "sort_order": 3
+    }
+]

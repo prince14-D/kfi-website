@@ -63,8 +63,10 @@ document.addEventListener('DOMContentLoaded', function(){
   const floatingContact = document.querySelector(".floating-contact");
   if (toggleButton && floatingContact) {
     toggleButton.addEventListener("click", function() {
-      floatingContact.classList.toggle("is-active");
+      var isActive = floatingContact.classList.toggle("is-active");
+      toggleButton.setAttribute("aria-expanded", isActive ? "true" : "false");
     });
+    toggleButton.setAttribute("aria-expanded", "false");
   }
 
   // Stats section: animate numbers when visible
@@ -147,15 +149,28 @@ document.addEventListener('DOMContentLoaded', function(){
   // Back to top button logic
   const backToTop = document.getElementById('backToTop');
   if (backToTop) {
-    window.addEventListener('scroll', function() {
+    function toggleBackToTop() {
       if (window.scrollY > 300) {
         backToTop.classList.add('show');
       } else {
         backToTop.classList.remove('show');
       }
-    });
-    backToTop.addEventListener('click', function() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.addEventListener('scroll', toggleBackToTop, { passive: true });
+    toggleBackToTop();
+
+    backToTop.addEventListener('click', function(event) {
+      event.preventDefault();
+      var scrollTarget = document.scrollingElement || document.documentElement || document.body;
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        scrollTarget.scrollTop = 0;
+        document.body.scrollTop = 0;
+        return;
+      }
+
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     });
   }
 
