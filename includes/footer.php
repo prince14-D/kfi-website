@@ -8,7 +8,7 @@
           <h5 class="fw-bold mb-0">Kingdom Foundation Institute</h5>
         </div>
         <p class="mb-2">Building strong academic foundations with discipline, creativity, and values.</p>
-        <p class="mb-0"><strong>Motto:</strong> Come As A Student, Leave As A Student</p>
+        <p class="mb-0"><strong>Motto:</strong> CULTURE OF EXCELLENCE</p>
       </div>
 
       <div class="col-6 col-lg-2">
@@ -42,9 +42,9 @@
           <a href="tel:+231770372231" aria-label="Call"><i class="bi bi-telephone-fill"></i></a>
           <a href="mailto:info@kingdomfoundationinstituteinc.org" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
           <a href="https://wa.me/231770372231" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.facebook.com/ourarena" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.youtube.com/@ourarena" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          
         </div>
       </div>
 

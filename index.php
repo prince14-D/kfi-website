@@ -463,7 +463,7 @@ include 'includes/header.php';
           </div>
         </div>
       </div>
-      <p class="text-center text-muted small mt-4 mb-0">Need help? Call us at (+231) 886-126-154 for assistance.</p>
+      <p class="text-center text-muted small mt-4 mb-0">Need help? Call us at (+231)886-551-719 for assistance.</p>
     </div>
   </div>
 </section>
