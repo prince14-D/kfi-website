@@ -2,11 +2,11 @@
 
 <section class="donation-hero">
   <div class="container">
-    <div class="donation-hero-content">
+    <div class="donation-hero-content text-center">
       <span class="section-eyebrow">Partner With KFI</span>
-      <h1>Invest in Christian education, leadership, and school improvement.</h1>
-      <p>Your support helps Kingdom Foundation Institute strengthen learners, teachers, families, and partner schools through values-based education and practical school development.</p>
-      <div class="donation-hero-actions">
+      <h1>Invest in Christian education and school improvement.</h1>
+      <p>Your support strengthens learners, teachers, and partner schools through values-based education.</p>
+      <div class="donation-hero-actions justify-content-center">
         <a href="#ways-to-give" class="btn btn-light btn-lg">Ways to Give</a>
         <a href="contacts.php" class="btn btn-outline-light btn-lg">Speak With Us</a>
       </div>
