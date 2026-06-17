@@ -105,6 +105,76 @@
   </div>
 </section>
 
+<section class="donation-form-section py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="donation-form-card">
+          <div class="text-center mb-4">
+            <span class="section-eyebrow">Give Online</span>
+            <h2 class="section-title mb-2">Make a Donation</h2>
+            <p class="text-muted">Complete the form below and we'll follow up with payment details.</p>
+          </div>
+          <form id="donationForm" class="donation-form">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="donorName" class="form-label">Full Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="donorName" name="donorName" placeholder="Your full name" required>
+              </div>
+              <div class="col-md-6">
+                <label for="donorEmail" class="form-label">Email Address <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="donorEmail" name="donorEmail" placeholder="your.email@example.com" required>
+              </div>
+              <div class="col-md-6">
+                <label for="donorPhone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="donorPhone" name="donorPhone" placeholder="+231 XXX XXX XXX">
+              </div>
+              <div class="col-md-6">
+                <label for="donationAmount" class="form-label">Donation Amount (USD) <span class="text-danger">*</span></label>
+                <div class="input-group">
+                  <span class="input-group-text">$</span>
+                  <input type="number" class="form-control" id="donationAmount" name="donationAmount" placeholder="0.00" min="1" step="0.01" required>
+                </div>
+              </div>
+              <div class="col-12">
+                <label for="donationFund" class="form-label">Designation <span class="text-danger">*</span></label>
+                <select class="form-select" id="donationFund" name="donationFund" required>
+                  <option value="" selected disabled>Select a fund...</option>
+                  <option value="student-support">Student Support & Scholarships</option>
+                  <option value="teacher-development">Teacher Development</option>
+                  <option value="facilities">Facilities & Campus Improvements</option>
+                  <option value="school-network">School Network (CELSIN-KFI)</option>
+                  <option value="general-operations">General Operations</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="donorMessage" class="form-label">Message (Optional)</label>
+                <textarea class="form-control" id="donorMessage" name="donorMessage" rows="3" placeholder="Share your thoughts or dedication..."></textarea>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="anonymousGift" name="anonymousGift">
+                  <label class="form-check-label" for="anonymousGift">
+                    Make this an anonymous gift
+                  </label>
+                </div>
+              </div>
+              <div class="col-12 mt-3">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-between align-items-center">
+                  <button type="submit" class="btn btn-school btn-lg">
+                    <i class="bi bi-heart-fill me-2"></i>Submit Donation Request
+                  </button>
+                  <small class="text-muted">You'll receive follow-up with payment instructions</small>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="donation-cta-band">
   <div class="container">
     <div class="donation-cta-panel">
