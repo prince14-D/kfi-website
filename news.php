@@ -48,6 +48,26 @@ include 'includes/header.php';
   </div>
 </section>
 
-
+<section class="facebook-section py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-4">
+      <span class="section-eyebrow">Follow Us</span>
+      <h2 class="section-title">Connect on Facebook</h2>
+      <p class="text-muted mx-auto mb-0" style="max-width: 600px;">Follow our Facebook page for the latest updates, photos, and community highlights.</p>
+    </div>
+    <div class="facebook-embed-wrapper text-center">
+      <iframe 
+        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fourarena&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+        width="500" 
+        height="600" 
+        style="border:none;overflow:hidden" 
+        scrolling="no" 
+        frameborder="0" 
+        allowfullscreen="true" 
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+      </iframe>
+    </div>
+  </div>
+</section>
 
 <?php include 'includes/footer.php'; ?>
