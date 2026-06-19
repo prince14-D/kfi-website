@@ -166,29 +166,37 @@
       <div class="col-lg-7">
         <span class="section-eyebrow">Register Now</span>
         <h2 class="section-title">Submit your school interest</h2>
-        <p class="text-muted">Use this form to prepare your request. Submitting will open your email client with the registration details addressed to the CELSIN-KFI office.</p>
+        <p class="text-muted">Complete the form below to register your school's interest with the CELSIN-KFI office.</p>
 
-        <form class="celsin-form" action="mailto:info@kingdomfoundationinstituteinc.org" method="post" enctype="text/plain">
+        <?php if (isset($_GET['success']) && $_GET['success'] === '1'): ?>
+        <div class="alert alert-success">
+          <h4 class="alert-heading"><i class="bi bi-check-circle me-2"></i>Thank You!</h4>
+          <p class="mb-0">Kindly wait for a call or message from the team. We appreciate your interest in CELSIN-KFI and will be in touch soon!</p>
+        </div>
+        <?php else: ?>
+        
+        <form class="celsin-form" action="admin/index.php" method="post">
+          <input type="hidden" name="submit_celsin_registration" value="1">
           <div class="row g-3">
             <div class="col-md-6">
-              <label for="schoolName" class="form-label">School Name</label>
-              <input type="text" class="form-control" id="schoolName" name="School Name" required>
+              <label for="schoolName" class="form-label">School Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="schoolName" name="school_name" required>
             </div>
             <div class="col-md-6">
-              <label for="contactName" class="form-label">Contact Person</label>
-              <input type="text" class="form-control" id="contactName" name="Contact Person" required>
+              <label for="contactName" class="form-label">Contact Person <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="contactName" name="contact_name" required>
             </div>
             <div class="col-md-6">
-              <label for="contactEmail" class="form-label">Email</label>
-              <input type="email" class="form-control" id="contactEmail" name="Email" required>
+              <label for="contactEmail" class="form-label">Email <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="contactEmail" name="contact_email" required>
             </div>
             <div class="col-md-6">
-              <label for="contactPhone" class="form-label">Phone / WhatsApp</label>
-              <input type="tel" class="form-control" id="contactPhone" name="Phone" required>
+              <label for="contactPhone" class="form-label">Phone / WhatsApp <span class="text-danger">*</span></label>
+              <input type="tel" class="form-control" id="contactPhone" name="contact_phone" required>
             </div>
             <div class="col-md-6">
-              <label for="schoolType" class="form-label">Service Interest</label>
-              <select class="form-select" id="schoolType" name="Service Interest" required>
+              <label for="schoolType" class="form-label">Service Interest <span class="text-danger">*</span></label>
+              <select class="form-select" id="schoolType" name="service_interest" required>
                 <option value="">Choose a service</option>
                 <option>K-12 Christian Schools Networking</option>
                 <option>Annual Christian Education Summit</option>
@@ -199,7 +207,7 @@
             </div>
             <div class="col-md-6">
               <label for="schoolSize" class="form-label">School Size</label>
-              <select class="form-select" id="schoolSize" name="School Size">
+              <select class="form-select" id="schoolSize" name="school_size">
               <option value="">Select school size</option> 
               <option>Under 100 students</option>
                 <option>100 - 300 students</option>
@@ -209,13 +217,14 @@
             </div>
             <div class="col-12">
               <label for="message" class="form-label">Message</label>
-              <textarea class="form-control" id="message" name="Message" rows="4" placeholder="Tell us what support your school needs."></textarea>
+              <textarea class="form-control" id="message" name="message" rows="4" placeholder="Tell us what support your school needs."></textarea>
             </div>
             <div class="col-12">
-              <button type="submit" class="btn btn-school btn-lg">Send Registration Interest</button>
+              <button type="submit" class="btn btn-school btn-lg">Submit Registration Interest</button>
             </div>
           </div>
         </form>
+        <?php endif; ?>
       </div>
 
       <div class="col-lg-5">

@@ -1,4 +1,29 @@
-<?php include 'includes/header.php'; ?>
+<?php
+require_once 'includes/storage_helper.php';
+
+$donation_success = false;
+$donation_error = '';
+
+if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST' && isset($_POST['donorName'])) {
+    $donorName = trim($_POST['donorName'] ?? '');
+    $donorEmail = trim($_POST['donorEmail'] ?? '');
+    $donationAmount = trim($_POST['donationAmount'] ?? '');
+    $donationFund = trim($_POST['donationFund'] ?? '');
+
+    if ($donorName !== '' && $donorEmail !== '' && $donationAmount !== '' && $donationFund !== '') {
+        $saved = save_donation($_POST);
+        if ($saved) {
+            $donation_success = true;
+        } else {
+            $donation_error = 'Unable to process your donation request. Please try again.';
+        }
+    } else {
+        $donation_error = 'Please fill in all required fields.';
+    }
+}
+
+include 'includes/header.php';
+?>
 
 <section class="donation-hero">
   <div class="container">
@@ -109,13 +134,33 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8">
+        <?php if ($donation_success): ?>
+        <div class="donation-success-card">
+          <div class="text-center">
+            <i class="bi bi-check-circle-fill text-success fs-1 mb-3"></i>
+            <h2 class="section-title mb-3">Thank You for Your Generosity!</h2>
+            <p class="lead mb-4">Your donation request has been received. We'll be in touch shortly with payment details.</p>
+            <div class="donation-next-steps">
+              <h5>Next Steps</h5>
+              <ul class="list-unstyled">
+                <li><i class="bi bi-whatsapp text-success me-2"></i> Chat with us on WhatsApp for immediate assistance: <a href="https://wa.me/231770143081" target="_blank" class="btn btn-success btn-sm mt-2"><i class="bi bi-whatsapp me-1"></i> Contact Us on WhatsApp</a></li>
+                <li class="mt-3"><i class="bi bi-envelope text-primary me-2"></i> Or wait for an email from us with payment instructions.</li>
+              </ul>
+            </div>
+            <a href="index.php" class="btn btn-school mt-4">Return to Home</a>
+          </div>
+        </div>
+        <?php else: ?>
         <div class="donation-form-card">
+          <?php if ($donation_error): ?>
+          <div class="alert alert-danger"><?php echo htmlspecialchars($donation_error); ?></div>
+          <?php endif; ?>
           <div class="text-center mb-4">
             <span class="section-eyebrow">Give Online</span>
             <h2 class="section-title mb-2">Make a Donation</h2>
             <p class="text-muted">Complete the form below and we'll follow up with payment details.</p>
           </div>
-          <form id="donationForm" class="donation-form">
+          <form id="donationForm" class="donation-form" method="POST" action="donate.php">
             <div class="row g-3">
               <div class="col-md-6">
                 <label for="donorName" class="form-label">Full Name <span class="text-danger">*</span></label>
@@ -147,18 +192,6 @@
                   <option value="general-operations">General Operations</option>
                 </select>
               </div>
-              <div class="col-12">
-                <label for="donorMessage" class="form-label">Message (Optional)</label>
-                <textarea class="form-control" id="donorMessage" name="donorMessage" rows="3" placeholder="Share your thoughts or dedication..."></textarea>
-              </div>
-              <div class="col-12">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="anonymousGift" name="anonymousGift">
-                  <label class="form-check-label" for="anonymousGift">
-                    Make this an anonymous gift
-                  </label>
-                </div>
-              </div>
               <div class="col-12 mt-3">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-between align-items-center">
                   <button type="submit" class="btn btn-school btn-lg">
@@ -170,6 +203,7 @@
             </div>
           </form>
         </div>
+        <?php endif; ?>
       </div>
     </div>
   </div>

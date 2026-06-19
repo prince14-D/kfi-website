@@ -1,7 +1,7 @@
 <?php
 require_once 'includes/storage_helper.php';
 $team_members = get_all_team_members();
-$team_groups = ['Board Member', 'Administration', 'Staff', 'Lecturer', 'Teacher'];
+$team_groups = ['Board', 'Administration', 'Staff', 'Teacher'];
 include 'includes/header.php';
 ?>
 
@@ -17,7 +17,7 @@ include 'includes/header.php';
   <div class="container">
     <div class="text-center mb-5">
       <span class="section-eyebrow">Team Directory</span>
-      <h2 class="section-title mb-3">Board, Administration, Staff & Faculty</h2>
+      <h2 class="section-title mb-3">Board, Administration, Staff & Teachers</h2>
       <p class="text-muted mx-auto" style="max-width: 760px;">Explore the people who guide governance, administration, teaching, and student support across KFI.</p>
     </div>
 

@@ -34,5 +34,17 @@
         "phone": "+231770372231",
         "image": "assets/images/princapal.jpg",
         "sort_order": 3
+    },
+    {
+        "id": "team_6a351b1deb03c4.94821854",
+        "name": "Prince Dahn",
+        "role": "Partnership Advisor",
+        "person_type": "Board Member",
+        "department": "",
+        "bio": "ood",
+        "email": "Jaydahn278@gmail.com",
+        "phone": "08968164796",
+        "image": "assets/images/banner2.jpeg",
+        "sort_order": 4
     }
 ]

@@ -6,6 +6,8 @@ define('NEWS_STORAGE', __DIR__ . '/../data/news.json');
 define('TEAM_STORAGE', __DIR__ . '/../data/team.json');
 define('GALLERY_STORAGE', __DIR__ . '/../data/gallery.json');
 define('ADMISSIONS_STORAGE', __DIR__ . '/../data/admissions.json');
+define('DONATIONS_STORAGE', __DIR__ . '/../data/donations.json');
+define('CELSIN_STORAGE', __DIR__ . '/../data/celsin_registrations.json');
 
 function ensure_json_storage($path) {
     $directory = dirname($path);
@@ -215,4 +217,76 @@ function get_all_admission_applications() {
     });
 
     return $applications;
+}
+
+function save_donation($item) {
+    $donations = get_all_donations();
+    $donations[] = [
+        'id' => $item['id'] ?? uniqid('donation_', true),
+        'submitted_at' => date('Y-m-d H:i:s'),
+        'donor_name' => trim($item['donorName'] ?? ''),
+        'donor_email' => trim($item['donorEmail'] ?? ''),
+        'donor_phone' => trim($item['donorPhone'] ?? ''),
+        'amount' => trim($item['donationAmount'] ?? ''),
+        'fund' => trim($item['donationFund'] ?? ''),
+        'message' => trim($item['donorMessage'] ?? ''),
+        'status' => 'pending',
+    ];
+
+    return write_json_storage(DONATIONS_STORAGE, $donations);
+}
+
+function get_all_donations() {
+    $donations = read_json_storage(DONATIONS_STORAGE);
+
+    usort($donations, function($a, $b) {
+        return strtotime($b['submitted_at'] ?? '') <=> strtotime($a['submitted_at'] ?? '');
+    });
+
+    return $donations;
+}
+
+function delete_donation($id) {
+    $donations = array_values(array_filter(get_all_donations(), function($item) use ($id) {
+        return ($item['id'] ?? '') !== $id;
+    }));
+
+    return write_json_storage(DONATIONS_STORAGE, $donations);
+}
+
+// CELSIN Registration Functions
+function ensure_celsin_storage() {
+    ensure_json_storage(CELSIN_STORAGE);
+}
+
+function get_all_celsin_registrations() {
+    ensure_celsin_storage();
+    return read_json_storage(CELSIN_STORAGE);
+}
+
+function save_celsin_registration($item) {
+    ensure_celsin_storage();
+    
+    $registrations = get_all_celsin_registrations();
+    $registrations[] = [
+        'id' => $item['id'] ?? uniqid('celsin_', true),
+        'school_name' => trim($item['school_name'] ?? ''),
+        'contact_name' => trim($item['contact_name'] ?? ''),
+        'contact_email' => trim($item['contact_email'] ?? ''),
+        'contact_phone' => trim($item['contact_phone'] ?? ''),
+        'service_interest' => trim($item['service_interest'] ?? ''),
+        'school_size' => trim($item['school_size'] ?? ''),
+        'message' => trim($item['message'] ?? ''),
+        'submitted_at' => date('Y-m-d H:i:s'),
+    ];
+
+    return write_json_storage(CELSIN_STORAGE, $registrations);
+}
+
+function delete_celsin_registration($id) {
+    $registrations = array_values(array_filter(get_all_celsin_registrations(), function($item) use ($id) {
+        return ($item['id'] ?? '') !== $id;
+    }));
+
+    return write_json_storage(CELSIN_STORAGE, $registrations);
 }

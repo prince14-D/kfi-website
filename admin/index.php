@@ -38,12 +38,30 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         if ($title === '' || $summary === '') {
             $error = 'Please add a news headline and summary before publishing.';
         } else {
+            // Handle image upload
+            $imagePath = $_POST['image'] ?? '';
+            if (isset($_FILES['news_upload_image']) && $_FILES['news_upload_image']['error'] === UPLOAD_ERR_OK) {
+                $uploadDir = __DIR__ . '/../assets/images/';
+                $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+                $fileType = $_FILES['news_upload_image']['type'];
+                
+                if (in_array($fileType, $allowedTypes)) {
+                    $extension = pathinfo($_FILES['news_upload_image']['name'], PATHINFO_EXTENSION);
+                    $newFileName = 'news_' . uniqid() . '.' . $extension;
+                    $targetPath = $uploadDir . $newFileName;
+                    
+                    if (move_uploaded_file($_FILES['news_upload_image']['tmp_name'], $targetPath)) {
+                        $imagePath = 'assets/images/' . $newFileName;
+                    }
+                }
+            }
+            
             $success = save_news_item([
                 'title' => $title,
                 'date' => $_POST['date'] ?: date('Y-m-d'),
                 'category' => $_POST['category'] ?? 'Announcement',
                 'summary' => $summary,
-                'image' => $_POST['image'] ?? '',
+                'image' => $imagePath,
             ]) ? 'News article published successfully.' : '';
             $error = $success ? '' : 'Unable to save the news article.';
         }
@@ -56,7 +74,27 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         if ($name === '' || $role === '') {
             $error = 'Please add the team member name and role.';
         } else {
-            $success = save_team_member($_POST) ? 'Team member added successfully.' : '';
+            // Handle image upload
+            $imagePath = $_POST['image'] ?? '';
+            if (isset($_FILES['team_upload_image']) && $_FILES['team_upload_image']['error'] === UPLOAD_ERR_OK) {
+                $uploadDir = __DIR__ . '/../assets/images/';
+                $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+                $fileType = $_FILES['team_upload_image']['type'];
+                
+                if (in_array($fileType, $allowedTypes)) {
+                    $extension = pathinfo($_FILES['team_upload_image']['name'], PATHINFO_EXTENSION);
+                    $newFileName = 'team_' . uniqid() . '.' . $extension;
+                    $targetPath = $uploadDir . $newFileName;
+                    
+                    if (move_uploaded_file($_FILES['team_upload_image']['tmp_name'], $targetPath)) {
+                        $imagePath = 'assets/images/' . $newFileName;
+                    }
+                }
+            }
+            
+            $teamData = $_POST;
+            $teamData['image'] = $imagePath;
+            $success = save_team_member($teamData) ? 'Team member added successfully.' : '';
             $error = $success ? '' : 'Unable to save the team member.';
         }
     }
@@ -67,22 +105,127 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         if ($title === '') {
             $error = 'Please add a gallery title.';
         } else {
+            // Handle image upload
+            $imagePath = $_POST['gallery_image'] ?? '';
+            if (isset($_FILES['gallery_upload_image']) && $_FILES['gallery_upload_image']['error'] === UPLOAD_ERR_OK) {
+                $uploadDir = __DIR__ . '/../assets/images/';
+                $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+                $fileType = $_FILES['gallery_upload_image']['type'];
+                
+                if (in_array($fileType, $allowedTypes)) {
+                    $extension = pathinfo($_FILES['gallery_upload_image']['name'], PATHINFO_EXTENSION);
+                    $newFileName = 'gallery_' . uniqid() . '.' . $extension;
+                    $targetPath = $uploadDir . $newFileName;
+                    
+                    if (move_uploaded_file($_FILES['gallery_upload_image']['tmp_name'], $targetPath)) {
+                        $imagePath = 'assets/images/' . $newFileName;
+                    }
+                }
+            }
+            
             $success = save_gallery_item([
                 'title' => $title,
                 'category' => $_POST['gallery_category'] ?? 'Campus Life',
                 'date' => $_POST['gallery_date'] ?: date('Y-m-d'),
                 'caption' => $_POST['caption'] ?? '',
-                'image' => $_POST['gallery_image'] ?? '',
+                'image' => $imagePath,
             ]) ? 'Gallery post published successfully.' : '';
             $error = $success ? '' : 'Unable to save the gallery post.';
         }
     }
+
+    // Handle CELSIN Registration Form Submission
+    if (isset($_POST['submit_celsin_registration'])) {
+        $school_name = trim($_POST['school_name'] ?? '');
+        $contact_name = trim($_POST['contact_name'] ?? '');
+        $contact_email = trim($_POST['contact_email'] ?? '');
+        $contact_phone = trim($_POST['contact_phone'] ?? '');
+        $service_interest = trim($_POST['service_interest'] ?? '');
+        $school_size = trim($_POST['school_size'] ?? '');
+        $message = trim($_POST['message'] ?? '');
+
+        if ($school_name === '' || $contact_name === '' || $contact_email === '') {
+            $error = 'Please fill in all required fields.';
+        } else {
+            $success = save_celsin_registration([
+                'school_name' => $school_name,
+                'contact_name' => $contact_name,
+                'contact_email' => $contact_email,
+                'contact_phone' => $contact_phone,
+                'service_interest' => $service_interest,
+                'school_size' => $school_size,
+                'message' => $message,
+            ]);
+            
+            if ($success) {
+                header('Location: ../academic.php?success=1');
+                exit;
+            } else {
+                $error = 'Unable to save the registration.';
+            }
+        }
+    }
+
+    if (isset($_POST['delete_donation'])) {
+        $success = delete_donation($_POST['donation_id'] ?? '') ? 'Donation request deleted.' : '';
+        $error = $success ? '' : 'Unable to delete the donation request.';
+    }
+
+    if (isset($_POST['delete_celsin'])) {
+        $success = delete_celsin_registration($_POST['celsin_id'] ?? '') ? 'CELSIN registration deleted.' : '';
+        $error = $success ? '' : 'Unable to delete the CELSIN registration.';
+    }
+}
+
+if (isset($_GET['export_donations'])) {
+    $donations = get_all_donations();
+    header('Content-Type: text/csv');
+    header('Content-Disposition: attachment; filename="kfi_donations_' . date('Y-m-d') . '.csv"');
+    $output = fopen('php://output', 'w');
+    fputcsv($output, ['Submitted', 'Name', 'Email', 'Phone', 'Amount', 'Fund', 'Message']);
+    foreach ($donations as $item) {
+        fputcsv($output, [
+            $item['submitted_at'] ?? '',
+            $item['donor_name'] ?? '',
+            $item['donor_email'] ?? '',
+            $item['donor_phone'] ?? '',
+            $item['amount'] ?? '',
+            $item['fund'] ?? '',
+            $item['message'] ?? '',
+        ]);
+    }
+    fclose($output);
+    exit;
+}
+
+if (isset($_GET['export_celsin'])) {
+    $celsin = get_all_celsin_registrations();
+    header('Content-Type: text/csv');
+    header('Content-Disposition: attachment; filename="celsin_registrations_' . date('Y-m-d') . '.csv"');
+    $output = fopen('php://output', 'w');
+    fputcsv($output, ['Submitted', 'School Name', 'Contact Name', 'Email', 'Phone', 'Service Interest', 'School Size', 'Message']);
+    foreach ($celsin as $item) {
+        fputcsv($output, [
+            $item['submitted_at'] ?? '',
+            $item['school_name'] ?? '',
+            $item['contact_name'] ?? '',
+            $item['contact_email'] ?? '',
+            $item['contact_phone'] ?? '',
+            $item['service_interest'] ?? '',
+            $item['school_size'] ?? '',
+            $item['message'] ?? '',
+        ]);
+    }
+    fclose($output);
+    exit;
 }
 
 $news_list = get_all_news();
 $team_list = get_all_team_members();
 $gallery_list = get_all_gallery_items();
 $applications = get_all_admission_applications();
+$donations = get_all_donations();
+$celsin_registrations = get_all_celsin_registrations();
 $image_options = [
     'banner2.jpeg' => 'Campus Activity',
     'banner3.jpeg' => 'School Event',
@@ -129,6 +272,8 @@ $image_options = [
             <div><strong><?php echo count($team_list); ?></strong><span>Team Members</span></div>
             <div><strong><?php echo count($gallery_list); ?></strong><span>Gallery Posts</span></div>
             <div><strong><?php echo count($applications); ?></strong><span>Admission Inquiries</span></div>
+            <div><strong><?php echo count($donations); ?></strong><span>Donation Requests</span></div>
+            <div><strong><?php echo count($celsin_registrations); ?></strong><span>CELSIN Registrations</span></div>
         </section>
 
         <ul class="nav nav-pills admin-tabs mb-4" id="adminTabs" role="tablist">
@@ -136,6 +281,8 @@ $image_options = [
             <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#team-panel" type="button">Team</button></li>
             <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#gallery-panel" type="button">Gallery</button></li>
             <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#applications-panel" type="button">Admissions</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#donations-panel" type="button">Donations</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#celsin-panel" type="button">CELSIN Registrations</button></li>
         </ul>
 
         <div class="tab-content">
@@ -144,7 +291,7 @@ $image_options = [
                     <div class="col-lg-5">
                         <div class="admin-panel">
                             <h2>Publish News</h2>
-                            <form method="post">
+                            <form method="post" enctype="multipart/form-data">
                                 <label class="form-label" for="title">Headline</label>
                                 <input type="text" name="title" id="title" class="form-control mb-3" required>
                                 <div class="row g-3">
@@ -164,11 +311,13 @@ $image_options = [
                                     </div>
                                 </div>
                                 <label class="form-label mt-3" for="image">Image</label>
-                                <select name="image" id="image" class="form-select">
+                                <select name="image" id="image" class="form-select mb-2">
                                     <?php foreach ($image_options as $file => $label): ?>
                                         <option value="<?php echo htmlspecialchars($file); ?>"><?php echo htmlspecialchars($label); ?></option>
                                     <?php endforeach; ?>
                                 </select>
+                                <div class="form-text mb-2">Or upload a new image:</div>
+                                <input type="file" name="news_upload_image" id="news_upload_image" class="form-control mb-3" accept="image/*">
                                 <label class="form-label mt-3" for="summary">Summary</label>
                                 <textarea name="summary" id="summary" class="form-control" rows="5" required></textarea>
                                 <button type="submit" name="post_news" class="btn btn-school w-100 mt-4">Publish News</button>
@@ -208,7 +357,7 @@ $image_options = [
                     <div class="col-lg-5">
                         <div class="admin-panel">
                             <h2>Add Team Member</h2>
-                            <form method="post">
+                            <form method="post" enctype="multipart/form-data">
                                 <label class="form-label" for="name">Name</label>
                                 <input type="text" name="name" id="name" class="form-control mb-3" required>
                                 <label class="form-label" for="role">Role</label>
@@ -234,11 +383,16 @@ $image_options = [
                                     </div>
                                 </div>
                                 <label class="form-label mt-3" for="team_image">Image</label>
-                                <select name="image" id="team_image" class="form-select">
-                                    <?php foreach ($image_options as $file => $label): ?>
-                                        <option value="<?php echo htmlspecialchars($file); ?>"><?php echo htmlspecialchars($label); ?></option>
-                                    <?php endforeach; ?>
-                                </select>
+                                <div class="input-group mb-2">
+                                    <select name="image" id="team_image" class="form-select">
+                                        <option value="">-- Select existing image --</option>
+                                        <?php foreach ($image_options as $file => $label): ?>
+                                            <option value="<?php echo htmlspecialchars($file); ?>"><?php echo htmlspecialchars($label); ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="form-text mb-2">Or upload a new image:</div>
+                                <input type="file" name="team_upload_image" id="team_upload_image" class="form-control mb-3" accept="image/*">
                                 <label class="form-label mt-3" for="sort_order">Display Order</label>
                                 <input type="number" name="sort_order" id="sort_order" class="form-control" value="<?php echo count($team_list) + 1; ?>">
                                 <label class="form-label mt-3" for="bio">Bio</label>
@@ -276,7 +430,7 @@ $image_options = [
                     <div class="col-lg-5">
                         <div class="admin-panel">
                             <h2>Post Gallery Item</h2>
-                            <form method="post">
+                            <form method="post" enctype="multipart/form-data">
                                 <label class="form-label" for="gallery_title">Title</label>
                                 <input type="text" name="gallery_title" id="gallery_title" class="form-control mb-3" required>
                                 <div class="row g-3">
@@ -295,11 +449,13 @@ $image_options = [
                                     </div>
                                 </div>
                                 <label class="form-label mt-3" for="gallery_image">Image</label>
-                                <select name="gallery_image" id="gallery_image" class="form-select">
+                                <select name="gallery_image" id="gallery_image" class="form-select mb-2">
                                     <?php foreach ($image_options as $file => $label): ?>
                                         <option value="<?php echo htmlspecialchars($file); ?>"><?php echo htmlspecialchars($label); ?></option>
                                     <?php endforeach; ?>
                                 </select>
+                                <div class="form-text mb-2">Or upload a new image:</div>
+                                <input type="file" name="gallery_upload_image" id="gallery_upload_image" class="form-control mb-3" accept="image/*">
                                 <label class="form-label mt-3" for="caption">Caption</label>
                                 <textarea name="caption" id="caption" class="form-control" rows="5"></textarea>
                                 <button type="submit" name="post_gallery" class="btn btn-school w-100 mt-4">Post Gallery Item</button>
@@ -371,9 +527,233 @@ $image_options = [
                     <?php endif; ?>
                 </div>
             </section>
+
+            <section class="tab-pane fade" id="donations-panel">
+                <div class="admin-panel">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="mb-0">Donation Requests</h2>
+                        <?php if (!empty($donations)): ?>
+                            <a href="?export_donations=1" class="btn btn-success btn-sm"><i class="bi bi-download me-1"></i> Export CSV</a>
+                        <?php endif; ?>
+                    </div>
+                    <?php if (empty($donations)): ?>
+                        <div class="admin-empty-state">No donation requests have been submitted yet.</div>
+                    <?php else: ?>
+                        <div class="table-responsive">
+                            <table class="table admin-table align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Submitted</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Amount</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($donations as $item): ?>
+                                        <tr>
+                                            <td><?php echo htmlspecialchars(date('M d, Y g:i A', strtotime($item['submitted_at'] ?? 'now'))); ?></td>
+                                            <td><strong><?php echo htmlspecialchars($item['donor_name'] ?? ''); ?></strong></td>
+                                            <td><a href="mailto:<?php echo htmlspecialchars($item['donor_email'] ?? ''); ?>"><?php echo htmlspecialchars($item['donor_email'] ?? ''); ?></a></td>
+                                            <td><a href="tel:<?php echo htmlspecialchars($item['donor_phone'] ?? ''); ?>"><?php echo htmlspecialchars($item['donor_phone'] ?? ''); ?></a></td>
+                                            <td><?php echo htmlspecialchars($item['amount'] ?? ''); ?></td>
+                                            <td>
+                                                <div class="d-flex gap-2">
+                                                    <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#donationModal<?php echo htmlspecialchars($item['id'] ?? ''); ?>" onclick="var m=new bootstrap.Modal(document.getElementById('donationModal<?php echo htmlspecialchars($item['id'] ?? ''); ?>'));m.show()"><i class="bi bi-eye"></i></button>
+                                                    <form method="post">
+                                                        <input type="hidden" name="donation_id" value="<?php echo htmlspecialchars($item['id'] ?? ''); ?>">
+                                                        <button type="submit" name="delete_donation" class="btn btn-outline-danger btn-sm" onclick="return confirm('Delete this donation request?');"><i class="bi bi-trash3"></i></button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <?php foreach ($donations as $item): ?>
+                <div class="modal fade" id="donationModal<?php echo htmlspecialchars($item['id'] ?? ''); ?>" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Donation Request Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <p class="mb-2"><strong>Name:</strong></p>
+                                        <p class="text-muted"><?php echo htmlspecialchars($item['donor_name'] ?? ''); ?></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="mb-2"><strong>Email:</strong></p>
+                                        <p class="text-muted"><a href="mailto:<?php echo htmlspecialchars($item['donor_email'] ?? ''); ?>"><?php echo htmlspecialchars($item['donor_email'] ?? ''); ?></a></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="mb-2"><strong>Phone:</strong></p>
+                                        <p class="text-muted"><a href="tel:<?php echo htmlspecialchars($item['donor_phone'] ?? ''); ?>"><?php echo htmlspecialchars($item['donor_phone'] ?? ''); ?></a></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="mb-2"><strong>Amount:</strong></p>
+                                        <p class="text-muted"><?php echo htmlspecialchars($item['amount'] ?? ''); ?></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="mb-2"><strong>Fund:</strong></p>
+                                        <p class="text-muted"><?php echo htmlspecialchars($item['fund'] ?? ''); ?></p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mb-2"><strong>Submitted:</strong></p>
+                                        <p class="text-muted"><?php echo htmlspecialchars(date('F d, Y g:i A', strtotime($item['submitted_at'] ?? 'now'))); ?></p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mb-2"><strong>Message:</strong></p>
+                                        <p class="text-muted"><?php echo nl2br(htmlspecialchars($item['message'] ?? 'No message provided.')); ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="mailto:<?php echo htmlspecialchars($item['donor_email'] ?? ''); ?>?subject=Re: KFI Donation Inquiry" class="btn btn-primary"><i class="bi bi-envelope me-1"></i> Reply via Email</a>
+                                <a href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', $item['donor_phone'] ?? ''); ?>" target="_blank" class="btn btn-success"><i class="bi bi-whatsapp me-1"></i> Contact via WhatsApp</a>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </section>
+
+            <section class="tab-pane fade" id="celsin-panel">
+                <div class="admin-panel">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2>CELSIN Registrations</h2>
+                        <?php if (!empty($celsin_registrations)): ?>
+                            <a href="?export_celsin" class="btn btn-success"><i class="bi bi-download me-1"></i> Export CSV</a>
+                        <?php endif; ?>
+                    </div>
+                    <?php if (empty($celsin_registrations)): ?>
+                        <div class="admin-empty-state">No CELSIN registrations have been submitted yet.</div>
+                    <?php else: ?>
+                        <div class="table-responsive">
+                            <table class="table admin-table align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Submitted</th>
+                                        <th>School</th>
+                                        <th>Contact</th>
+                                        <th>Interest</th>
+                                        <th>Size</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($celsin_registrations as $item): ?>
+                                        <tr>
+                                            <td><?php echo htmlspecialchars(date('M d, Y g:i A', strtotime($item['submitted_at'] ?? 'now'))); ?></td>
+                                            <td><strong><?php echo htmlspecialchars($item['school_name'] ?? ''); ?></strong></td>
+                                            <td>
+                                                <strong><?php echo htmlspecialchars($item['contact_name'] ?? ''); ?></strong><br>
+                                                <small><a href="mailto:<?php echo htmlspecialchars($item['contact_email'] ?? ''); ?>"><?php echo htmlspecialchars($item['contact_email'] ?? ''); ?></a></small><br>
+                                                <small><a href="tel:<?php echo htmlspecialchars($item['contact_phone'] ?? ''); ?>"><?php echo htmlspecialchars($item['contact_phone'] ?? ''); ?></a></small>
+                                            </td>
+                                            <td><?php echo htmlspecialchars($item['service_interest'] ?? ''); ?></td>
+                                            <td><?php echo htmlspecialchars($item['school_size'] ?? ''); ?></td>
+                                            <td>
+                                                <div class="d-flex gap-2">
+                                                    <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#celsinModal<?php echo htmlspecialchars($item['id'] ?? ''); ?>" onclick="var m=new bootstrap.Modal(document.getElementById('celsinModal<?php echo htmlspecialchars($item['id'] ?? ''); ?>'));m.show()"><i class="bi bi-eye"></i></button>
+                                                    <form method="post">
+                                                        <input type="hidden" name="celsin_id" value="<?php echo htmlspecialchars($item['id'] ?? ''); ?>">
+                                                        <button type="submit" name="delete_celsin" class="btn btn-outline-danger btn-sm" onclick="return confirm('Delete this registration?');"><i class="bi bi-trash3"></i></button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <?php foreach ($celsin_registrations as $item): ?>
+                <div class="modal fade" id="celsinModal<?php echo htmlspecialchars($item['id'] ?? ''); ?>" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"><?php echo htmlspecialchars($item['school_name'] ?? ''); ?></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <p class="mb-2"><strong>Contact Person:</strong></p>
+                                        <p class="text-muted"><?php echo htmlspecialchars($item['contact_name'] ?? ''); ?></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="mb-2"><strong>Email:</strong></p>
+                                        <p class="text-muted"><a href="mailto:<?php echo htmlspecialchars($item['contact_email'] ?? ''); ?>"><?php echo htmlspecialchars($item['contact_email'] ?? ''); ?></a></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="mb-2"><strong>Phone:</strong></p>
+                                        <p class="text-muted"><a href="tel:<?php echo htmlspecialchars($item['contact_phone'] ?? ''); ?>"><?php echo htmlspecialchars($item['contact_phone'] ?? ''); ?></a></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="mb-2"><strong>Service Interest:</strong></p>
+                                        <p class="text-muted"><?php echo htmlspecialchars($item['service_interest'] ?? ''); ?></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="mb-2"><strong>School Size:</strong></p>
+                                        <p class="text-muted"><?php echo htmlspecialchars($item['school_size'] ?? ''); ?></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="mb-2"><strong>Submitted:</strong></p>
+                                        <p class="text-muted"><?php echo htmlspecialchars(date('F d, Y g:i A', strtotime($item['submitted_at'] ?? 'now'))); ?></p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mb-2"><strong>Message:</strong></p>
+                                        <p class="text-muted"><?php echo nl2br(htmlspecialchars($item['message'] ?? 'No message provided.')); ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="d-flex gap-2 me-auto">
+                                    <a href="tel:<?php echo htmlspecialchars($item['contact_phone'] ?? ''); ?>" class="btn btn-primary"><i class="bi bi-telephone me-1"></i> Call</a>
+                                    <a href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', $item['contact_phone'] ?? ''); ?>" target="_blank" class="btn btn-success"><i class="bi bi-whatsapp me-1"></i> WhatsApp</a>
+                                    <a href="mailto:<?php echo htmlspecialchars($item['contact_email'] ?? ''); ?>?subject=Re: CELSIN-KFI Registration" class="btn btn-outline-primary"><i class="bi bi-envelope me-1"></i> Email</a>
+                                </div>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </section>
         </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize all modals after Bootstrap is loaded
+        window.addEventListener('load', function() {
+            // Initialize donation modals
+            var donationModals = document.querySelectorAll('[id^="donationModal"]');
+            donationModals.forEach(function(modalEl) {
+                if (typeof bootstrap !== 'undefined' && !modalEl._bsModal) {
+                    new bootstrap.Modal(modalEl);
+                }
+            });
+            // Initialize CELSIN modals
+            var celsinModals = document.querySelectorAll('[id^="celsinModal"]');
+            celsinModals.forEach(function(modalEl) {
+                if (typeof bootstrap !== 'undefined' && !modalEl._bsModal) {
+                    new bootstrap.Modal(modalEl);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
