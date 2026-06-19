@@ -6,7 +6,7 @@ $home_gallery = get_featured_gallery_items(6);
 include 'includes/header.php';
 ?>
 <section class="hero-slider">
-  <div class="slide active" style="background-image:url('assets/images/banner-kfi.jpg')">
+  <div class="slide active" style="background-image:url('assets/images/banner-slider.jpeg')">
     <div class="overlay"></div>
     <div class="slide-inner container">
       <p class="slide-kicker">Welcome to Kingdom Foundation Institute</p>
@@ -29,7 +29,7 @@ include 'includes/header.php';
       </div>
     </div>
   </div>
-  <div class="slide" style="background-image:url('assets/images/banner-kfi-1.jpg')">
+  <div class="slide" style="background-image:url('assets/images/banner-slider1.jpeg')">
     <div class="overlay"></div>
     <div class="slide-inner container">
       <p class="slide-kicker">Join the KFI Community</p>
@@ -224,7 +224,7 @@ include 'includes/header.php';
 
       <div class="col-lg-6">
         <div class="ratio ratio-16x9 rounded overflow-hidden shadow video-frame">
-          <iframe src="https://www.youtube.com/embed/SNQtms7IoTE"
+          <iframe src="https://www.youtube.com/embed/5jzndGSF5iA"
             title="Kingdom Foundation Institute — Introduction"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
