@@ -1,0 +1,34 @@
+[
+    {
+        "id": "testimonial_patience_mataley",
+        "quote": "The values and discipline taught at Logic School are remarkable. My son has grown so much both academically and in character.",
+        "author": "Patience Mataley",
+        "author_title": "Parent of Grade 5 Student",
+        "image": "assets/images/logo.png",
+        "sort_order": 1
+    },
+    {
+        "id": "testimonial_rebecca_telo",
+        "quote": "I am proud to have my daughter enrolled here. The school genuinely cares about every child and it shows in the results.",
+        "author": "Rebecca T. Telo",
+        "author_title": "Parent of Kindergarten Student",
+        "image": "assets/images/logo.png",
+        "sort_order": 2
+    },
+    {
+        "id": "testimonial_samuel_k",
+        "quote": "Our experience at KFI has been exceptional - supportive staff and effective learning strategies.",
+        "author": "Samuel K.",
+        "author_title": "Parent",
+        "image": "assets/images/logo.png",
+        "sort_order": 3
+    },
+    {
+        "id": "testimonial_amelia_r",
+        "quote": "Attentive teachers and a safe environment - highly recommended.",
+        "author": "Amelia R.",
+        "author_title": "Parent",
+        "image": "assets/images/princapal.jpg",
+        "sort_order": 4
+    }
+]

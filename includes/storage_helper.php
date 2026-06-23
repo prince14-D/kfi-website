@@ -5,6 +5,7 @@
 define('NEWS_STORAGE', __DIR__ . '/../data/news.json');
 define('TEAM_STORAGE', __DIR__ . '/../data/team.json');
 define('GALLERY_STORAGE', __DIR__ . '/../data/gallery.json');
+define('TESTIMONIALS_STORAGE', __DIR__ . '/../data/testimonials.json');
 define('ADMISSIONS_STORAGE', __DIR__ . '/../data/admissions.json');
 define('DONATIONS_STORAGE', __DIR__ . '/../data/donations.json');
 define('CELSIN_STORAGE', __DIR__ . '/../data/celsin_registrations.json');
@@ -189,6 +190,56 @@ function delete_gallery_item($id) {
     }));
 
     return write_json_storage(GALLERY_STORAGE, $gallery);
+}
+
+function get_all_testimonials() {
+    $testimonials = read_json_storage(TESTIMONIALS_STORAGE);
+
+    usort($testimonials, function($a, $b) {
+        return (int)($a['sort_order'] ?? 99) <=> (int)($b['sort_order'] ?? 99);
+    });
+
+    return $testimonials;
+}
+
+function get_featured_testimonials($limit = 4) {
+    return array_slice(get_all_testimonials(), 0, $limit);
+}
+
+function save_testimonial($item) {
+    $testimonials = get_all_testimonials();
+    $id = $item['id'] ?? '';
+    $record = [
+        'id' => $id !== '' ? $id : uniqid('testimonial_', true),
+        'quote' => trim($item['quote'] ?? ''),
+        'author' => trim($item['author'] ?? ''),
+        'author_title' => trim($item['author_title'] ?? 'Parent'),
+        'image' => normalize_asset_image($item['image'] ?? '', 'assets/images/logo.png'),
+        'sort_order' => (int)($item['sort_order'] ?? 99),
+    ];
+
+    $updated = false;
+    foreach ($testimonials as $index => $testimonial) {
+        if (($testimonial['id'] ?? '') === $record['id']) {
+            $testimonials[$index] = $record;
+            $updated = true;
+            break;
+        }
+    }
+
+    if (!$updated) {
+        $testimonials[] = $record;
+    }
+
+    return write_json_storage(TESTIMONIALS_STORAGE, $testimonials);
+}
+
+function delete_testimonial($id) {
+    $testimonials = array_values(array_filter(get_all_testimonials(), function($item) use ($id) {
+        return ($item['id'] ?? '') !== $id;
+    }));
+
+    return write_json_storage(TESTIMONIALS_STORAGE, $testimonials);
 }
 
 function save_admission_application($item) {

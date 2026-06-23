@@ -15,6 +15,30 @@ require_once __DIR__ . '/../includes/storage_helper.php';
 $success = '';
 $error = '';
 
+function handle_admin_image_upload($field, $prefix) {
+    if (!isset($_FILES[$field]) || $_FILES[$field]['error'] !== UPLOAD_ERR_OK) {
+        return '';
+    }
+
+    $uploadDir = __DIR__ . '/../assets/images/';
+    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+    $fileType = $_FILES[$field]['type'];
+
+    if (!in_array($fileType, $allowedTypes)) {
+        return '';
+    }
+
+    $extension = pathinfo($_FILES[$field]['name'], PATHINFO_EXTENSION);
+    $newFileName = $prefix . '_' . uniqid() . '.' . $extension;
+    $targetPath = $uploadDir . $newFileName;
+
+    if (move_uploaded_file($_FILES[$field]['tmp_name'], $targetPath)) {
+        return 'assets/images/' . $newFileName;
+    }
+
+    return '';
+}
+
 if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     if (isset($_POST['delete_news'])) {
         $success = delete_news_item($_POST['news_id'] ?? '') ? 'News article deleted.' : '';
@@ -29,6 +53,11 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     if (isset($_POST['delete_gallery'])) {
         $success = delete_gallery_item($_POST['gallery_id'] ?? '') ? 'Gallery post deleted.' : '';
         $error = $success ? '' : 'Unable to delete the gallery post.';
+    }
+
+    if (isset($_POST['delete_testimonial'])) {
+        $success = delete_testimonial($_POST['testimonial_id'] ?? '') ? 'Testimonial deleted.' : '';
+        $error = $success ? '' : 'Unable to delete the testimonial.';
     }
 
     if (isset($_POST['post_news'])) {
@@ -134,6 +163,34 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         }
     }
 
+    if (isset($_POST['post_testimonial']) || isset($_POST['update_testimonial'])) {
+        $quote = trim($_POST['testimonial_quote'] ?? '');
+        $author = trim($_POST['testimonial_author'] ?? '');
+
+        if ($quote === '' || $author === '') {
+            $error = 'Please add the testimonial quote and author.';
+        } else {
+            $imagePath = $_POST['testimonial_image'] ?? '';
+            $uploadedImage = handle_admin_image_upload('testimonial_upload_image', 'testimonial');
+
+            if ($uploadedImage !== '') {
+                $imagePath = $uploadedImage;
+            } elseif ($imagePath === '') {
+                $imagePath = $_POST['existing_testimonial_image'] ?? '';
+            }
+
+            $success = save_testimonial([
+                'id' => $_POST['testimonial_id'] ?? '',
+                'quote' => $quote,
+                'author' => $author,
+                'author_title' => $_POST['testimonial_author_title'] ?? 'Parent',
+                'image' => $imagePath,
+                'sort_order' => $_POST['testimonial_sort_order'] ?? 99,
+            ]) ? (isset($_POST['update_testimonial']) ? 'Testimonial updated successfully.' : 'Testimonial published successfully.') : '';
+            $error = $success ? '' : 'Unable to save the testimonial.';
+        }
+    }
+
     // Handle CELSIN Registration Form Submission
     if (isset($_POST['submit_celsin_registration'])) {
         $school_name = trim($_POST['school_name'] ?? '');
@@ -223,6 +280,7 @@ if (isset($_GET['export_celsin'])) {
 $news_list = get_all_news();
 $team_list = get_all_team_members();
 $gallery_list = get_all_gallery_items();
+$testimonial_list = get_all_testimonials();
 $applications = get_all_admission_applications();
 $donations = get_all_donations();
 $celsin_registrations = get_all_celsin_registrations();
@@ -271,6 +329,7 @@ $image_options = [
             <div><strong><?php echo count($news_list); ?></strong><span>News Posts</span></div>
             <div><strong><?php echo count($team_list); ?></strong><span>Team Members</span></div>
             <div><strong><?php echo count($gallery_list); ?></strong><span>Gallery Posts</span></div>
+            <div><strong><?php echo count($testimonial_list); ?></strong><span>Testimonials</span></div>
             <div><strong><?php echo count($applications); ?></strong><span>Admission Inquiries</span></div>
             <div><strong><?php echo count($donations); ?></strong><span>Donation Requests</span></div>
             <div><strong><?php echo count($celsin_registrations); ?></strong><span>CELSIN Registrations</span></div>
@@ -280,6 +339,7 @@ $image_options = [
             <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#news-panel" type="button">News</button></li>
             <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#team-panel" type="button">Team</button></li>
             <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#gallery-panel" type="button">Gallery</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#testimonials-panel" type="button">Testimonials</button></li>
             <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#applications-panel" type="button">Admissions</button></li>
             <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#donations-panel" type="button">Donations</button></li>
             <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#celsin-panel" type="button">CELSIN Registrations</button></li>
@@ -481,6 +541,114 @@ $image_options = [
                                     </article>
                                 <?php endforeach; ?>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tab-pane fade" id="testimonials-panel">
+                <div class="row g-4">
+                    <div class="col-lg-5">
+                        <div class="admin-panel">
+                            <h2>Publish Testimonial</h2>
+                            <form method="post" enctype="multipart/form-data">
+                                <label class="form-label" for="testimonial_quote">Quote</label>
+                                <textarea name="testimonial_quote" id="testimonial_quote" class="form-control mb-3" rows="5" required></textarea>
+                                <label class="form-label" for="testimonial_author">Author</label>
+                                <input type="text" name="testimonial_author" id="testimonial_author" class="form-control mb-3" required>
+                                <label class="form-label" for="testimonial_author_title">Author Detail</label>
+                                <input type="text" name="testimonial_author_title" id="testimonial_author_title" class="form-control mb-3" value="Parent">
+                                <label class="form-label" for="testimonial_image">Image</label>
+                                <select name="testimonial_image" id="testimonial_image" class="form-select mb-2">
+                                    <?php foreach ($image_options as $file => $label): ?>
+                                        <option value="<?php echo htmlspecialchars($file); ?>"><?php echo htmlspecialchars($label); ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <div class="form-text mb-2">Or upload a new image:</div>
+                                <input type="file" name="testimonial_upload_image" id="testimonial_upload_image" class="form-control mb-3" accept="image/*">
+                                <label class="form-label" for="testimonial_sort_order">Display Order</label>
+                                <input type="number" name="testimonial_sort_order" id="testimonial_sort_order" class="form-control" value="<?php echo count($testimonial_list) + 1; ?>">
+                                <button type="submit" name="post_testimonial" class="btn btn-school w-100 mt-4">Publish Testimonial</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="admin-panel">
+                            <h2>Testimonials</h2>
+                            <?php if (empty($testimonial_list)): ?>
+                                <div class="admin-empty-state">No testimonials have been published yet.</div>
+                            <?php else: ?>
+                                <div class="admin-news-list">
+                                    <?php foreach ($testimonial_list as $item): ?>
+                                        <?php $testimonial_modal_id = 'testimonialEdit' . preg_replace('/[^A-Za-z0-9_-]/', '', $item['id'] ?? ''); ?>
+                                        <article class="admin-news-row">
+                                            <img src="../<?php echo htmlspecialchars(news_image_url($item['image'] ?? '')); ?>" alt="">
+                                            <div>
+                                                <span>Order <?php echo htmlspecialchars($item['sort_order'] ?? ''); ?> / <?php echo htmlspecialchars($item['author_title'] ?? 'Parent'); ?></span>
+                                                <h3><?php echo htmlspecialchars($item['author'] ?? 'Community member'); ?></h3>
+                                                <p><?php echo htmlspecialchars(excerpt_text($item['quote'] ?? '', 120)); ?></p>
+                                            </div>
+                                            <div class="d-flex gap-2">
+                                                <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#<?php echo htmlspecialchars($testimonial_modal_id); ?>"><i class="bi bi-pencil-square"></i></button>
+                                                <form method="post">
+                                                    <input type="hidden" name="testimonial_id" value="<?php echo htmlspecialchars($item['id'] ?? ''); ?>">
+                                                    <button type="submit" name="delete_testimonial" class="btn btn-outline-danger btn-sm" onclick="return confirm('Delete this testimonial?');"><i class="bi bi-trash3"></i></button>
+                                                </form>
+                                            </div>
+                                        </article>
+
+                                        <div class="modal fade" id="<?php echo htmlspecialchars($testimonial_modal_id); ?>" tabindex="-1">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <form method="post" enctype="multipart/form-data">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Edit Testimonial</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <input type="hidden" name="testimonial_id" value="<?php echo htmlspecialchars($item['id'] ?? ''); ?>">
+                                                            <input type="hidden" name="existing_testimonial_image" value="<?php echo htmlspecialchars($item['image'] ?? ''); ?>">
+                                                            <label class="form-label" for="<?php echo htmlspecialchars($testimonial_modal_id); ?>Quote">Quote</label>
+                                                            <textarea name="testimonial_quote" id="<?php echo htmlspecialchars($testimonial_modal_id); ?>Quote" class="form-control mb-3" rows="5" required><?php echo htmlspecialchars($item['quote'] ?? ''); ?></textarea>
+                                                            <div class="row g-3">
+                                                                <div class="col-md-6">
+                                                                    <label class="form-label" for="<?php echo htmlspecialchars($testimonial_modal_id); ?>Author">Author</label>
+                                                                    <input type="text" name="testimonial_author" id="<?php echo htmlspecialchars($testimonial_modal_id); ?>Author" class="form-control" value="<?php echo htmlspecialchars($item['author'] ?? ''); ?>" required>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label class="form-label" for="<?php echo htmlspecialchars($testimonial_modal_id); ?>Title">Author Detail</label>
+                                                                    <input type="text" name="testimonial_author_title" id="<?php echo htmlspecialchars($testimonial_modal_id); ?>Title" class="form-control" value="<?php echo htmlspecialchars($item['author_title'] ?? 'Parent'); ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="row g-3 mt-1">
+                                                                <div class="col-md-8">
+                                                                    <label class="form-label" for="<?php echo htmlspecialchars($testimonial_modal_id); ?>Image">Image</label>
+                                                                    <select name="testimonial_image" id="<?php echo htmlspecialchars($testimonial_modal_id); ?>Image" class="form-select">
+                                                                        <option value="">Keep current image</option>
+                                                                        <?php foreach ($image_options as $file => $label): ?>
+                                                                            <option value="<?php echo htmlspecialchars($file); ?>" <?php echo basename($item['image'] ?? '') === $file ? 'selected' : ''; ?>><?php echo htmlspecialchars($label); ?></option>
+                                                                        <?php endforeach; ?>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <label class="form-label" for="<?php echo htmlspecialchars($testimonial_modal_id); ?>Order">Display Order</label>
+                                                                    <input type="number" name="testimonial_sort_order" id="<?php echo htmlspecialchars($testimonial_modal_id); ?>Order" class="form-control" value="<?php echo htmlspecialchars($item['sort_order'] ?? 99); ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-text mt-3 mb-2">Or upload a new image:</div>
+                                                            <input type="file" name="testimonial_upload_image" class="form-control" accept="image/*">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                            <button type="submit" name="update_testimonial" class="btn btn-school">Save Changes</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

@@ -3,6 +3,7 @@ require_once 'includes/storage_helper.php';
 $home_news = get_recent_news(3);
 $home_team = get_featured_team_members(4);
 $home_gallery = get_featured_gallery_items(6);
+$home_testimonials = get_featured_testimonials(4);
 include 'includes/header.php';
 ?>
 <section class="hero-slider">
@@ -317,70 +318,30 @@ include 'includes/header.php';
 
 
 <!-- Testimonials -->
-<section class="py-5 testimonials-section" data-animate>
-  <div class="container">
-    <h2 class="section-title text-center mb-3">Voices from Our Community</h2>
-    <div class="row g-4 justify-content-center">
-
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="testimonial-card">
-          <div class="testimonial-quote"><i class="bi bi-quote"></i></div>
-          <p class="testimonial-text">"The values and discipline taught at Logic School are remarkable. My son has grown so much both academically and in character."</p>
-          <div class="testimonial-author d-flex align-items-center gap-3 mt-3">
-            <img src="assets/images/logo.png" class="testimonial-avatar" alt="Parent">
-            <div>
-              <strong>Patience Mataley</strong>
-              <small class="d-block text-muted">Parent of Grade 5 Student</small>
+<?php if (!empty($home_testimonials)): ?>
+  <section class="py-5 testimonials-section" data-animate>
+    <div class="container">
+      <h2 class="section-title text-center mb-3">Voices from Our Community</h2>
+      <div class="row g-4 justify-content-center">
+        <?php foreach ($home_testimonials as $testimonial): ?>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="testimonial-card">
+              <div class="testimonial-quote"><i class="bi bi-quote"></i></div>
+              <p class="testimonial-text">"<?php echo htmlspecialchars($testimonial['quote'] ?? ''); ?>"</p>
+              <div class="testimonial-author d-flex align-items-center gap-3 mt-3">
+                <img src="<?php echo htmlspecialchars(news_image_url($testimonial['image'] ?? '')); ?>" class="testimonial-avatar" alt="<?php echo htmlspecialchars($testimonial['author'] ?? 'Community member'); ?>">
+                <div>
+                  <strong><?php echo htmlspecialchars($testimonial['author'] ?? 'Community member'); ?></strong>
+                  <small class="d-block text-muted"><?php echo htmlspecialchars($testimonial['author_title'] ?? 'Parent'); ?></small>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        <?php endforeach; ?>
       </div>
-
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="testimonial-card">
-          <div class="testimonial-quote"><i class="bi bi-quote"></i></div>
-          <p class="testimonial-text">"I am proud to have my daughter enrolled here. The school genuinely cares about every child and it shows in the results."</p>
-          <div class="testimonial-author d-flex align-items-center gap-3 mt-3">
-            <img src="assets/images/logo.png" class="testimonial-avatar" alt="Parent">
-            <div>
-              <strong>Rebecca T. Telo</strong>
-              <small class="d-block text-muted">Parent of Kindergarten Student</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="testimonial-card">
-          <div class="testimonial-quote"><i class="bi bi-quote"></i></div>
-          <p class="testimonial-text">"Our experience at KFI has been exceptional — supportive staff and effective learning strategies."</p>
-          <div class="testimonial-author d-flex align-items-center gap-3 mt-3">
-            <img src="assets/images/logo.png" class="testimonial-avatar" alt="Parent">
-            <div>
-              <strong>Samuel K.</strong>
-              <small class="d-block text-muted">Parent</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="testimonial-card">
-          <div class="testimonial-quote"><i class="bi bi-quote"></i></div>
-          <p class="testimonial-text">"Attentive teachers and a safe environment — highly recommended."</p>
-          <div class="testimonial-author d-flex align-items-center gap-3 mt-3">
-            <img src="assets/images/logo.png" class="testimonial-avatar" alt="Parent">
-            <div>
-              <strong>Amelia R.</strong>
-              <small class="d-block text-muted">Parent</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
+<?php endif; ?>
 
 
 <section class="celsin-services py-5" data-animate>
