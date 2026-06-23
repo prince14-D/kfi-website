@@ -40,6 +40,17 @@ include 'includes/header.php';
       </div>
     </div>
   </div>
+  <div class="slide" style="background-image:url('assets/images/banner4-kfi.jpeg')">
+    <div class="overlay"></div>
+    <div class="slide-inner container">
+      <p class="slide-kicker">Faith & Learning Combined</p>
+      <h1>Nurturing hearts and minds for tomorrow</h1>
+      <p>We integrate Christian values with academic rigor to develop confident, compassionate leaders who make a difference in their communities.</p>
+      <div class="hero-cta">
+        <a href="about.php" class="hero-btn hero-btn-primary">Our Story</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="admissions-cta-wrap" data-animate>
@@ -224,8 +235,8 @@ include 'includes/header.php';
 
       <div class="col-lg-6">
         <div class="ratio ratio-16x9 rounded overflow-hidden shadow video-frame">
-          <iframe src="https://www.youtube.com/embed/5jzndGSF5iA"
-            title="Kingdom Foundation Institute — Introduction"
+          <iframe src="https://www.youtube.com/embed/UzXzeeaQcZc"
+            title="Kingdom Foundation Institute"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
         </div>
@@ -446,7 +457,7 @@ include 'includes/header.php';
           <div class="download-card">
             <div class="download-icon"><i class="bi bi-file-earmark-pdf-fill"></i></div>
             <h5 class="mb-2">Programs Brochure</h5>
-            <p class="mb-3">Overview of our programs, facilities, and student life at Logic-A Demonstration School.</p>
+            <p class="mb-3">Overview of our programs, facilities, and student life at kingdom foundation School.</p>
             <a href="assets/files/logic-programs-brochure.pdf" class="btn btn-school" download>
               <i class="bi bi-download me-1"></i> Download Brochure
             </a>

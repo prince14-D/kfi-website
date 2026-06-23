@@ -4,7 +4,7 @@
   <div class="container">
     <span class="section-eyebrow">CELSIN - KFI</span>
     <h1 class="display-4 fw-bold mb-3">Christian Education Leadership and School Improvement Network</h1>
-    <p class="lead">Building bright futures through quality education, peer collaboration, school improvement, and values-driven leadership for K-12 Christian schools.</p>
+    <p class="lead">Building bright futures through quality academic and Christian character development in the K-12 program.</p>
   </div>
 </section>
 
