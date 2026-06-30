@@ -9,46 +9,54 @@ include 'includes/header.php';
 <section class="hero-slider">
   <div class="slide active" style="background-image:url('assets/images/banner-slider.jpeg')">
     <div class="overlay"></div>
-    <div class="slide-inner container">
-      <p class="slide-kicker">Welcome to Kingdom Foundation Institute</p>
-      <h1>Building academic excellence and strong Christian character.</h1>
-      <p></p>
-      <div class="hero-cta">
-        <a href="admissions.php" class="hero-btn hero-btn-primary">Apply Now</a>
-        <a href="about.php" class="hero-btn hero-btn-secondary">Learn More</a>
+    <div class="slide-inner">
+      <div class="hero-copy">
+        <p class="slide-kicker">Welcome to Kingdom Foundation Institute</p>
+        <h1>Building academic excellence and strong Christian character.</h1>
+        <p>We help students grow in wisdom, discipline, and faith through a supportive learning environment.</p>
+        <div class="hero-cta">
+          <a href="admissions.php" class="hero-btn hero-btn-primary">Apply Now</a>
+          <a href="about.php" class="hero-btn hero-btn-secondary">Learn More</a>
+        </div>
       </div>
     </div>
   </div>
   <div class="slide" style="background-image:url('assets/images/banner3.jpeg')">
     <div class="overlay"></div>
-    <div class="slide-inner container">
-      <p class="slide-kicker">A Learning Environment That Cares</p>
-      <h1>Focused teaching and meaningful support</h1>
-      <p>Our classrooms are designed to help students build strong foundations and develop the habits needed for success.</p>
-      <div class="hero-cta">
-        <a href="about.php" class="hero-btn hero-btn-secondary">Discover More</a>
+    <div class="slide-inner">
+      <div class="hero-copy">
+        <p class="slide-kicker">A Learning Environment That Cares</p>
+        <h1>Focused teaching and meaningful support</h1>
+        <p>Our classrooms are designed to help students build strong foundations and develop the habits needed for success.</p>
+        <div class="hero-cta">
+          <a href="about.php" class="hero-btn hero-btn-secondary">Discover More</a>
+        </div>
       </div>
     </div>
   </div>
   <div class="slide" style="background-image:url('assets/images/banner-slider1.jpeg')">
     <div class="overlay"></div>
-    <div class="slide-inner container">
-      <p class="slide-kicker">Join the KFI Community</p>
-      <h1>Education grounded in excellence</h1>
-      <p>From admission to graduation, we are committed to helping students thrive in a culture of discipline, respect, and achievement.</p>
-      <div class="hero-cta">
-        <a href="contacts.php" class="hero-btn hero-btn-primary">Contact Us</a>
+    <div class="slide-inner">
+      <div class="hero-copy">
+        <p class="slide-kicker">Join the KFI Community</p>
+        <h1>Education grounded in excellence</h1>
+        <p>From admission to graduation, we are committed to helping students thrive in a culture of discipline, respect, and achievement.</p>
+        <div class="hero-cta">
+          <a href="contacts.php" class="hero-btn hero-btn-primary">Contact Us</a>
+        </div>
       </div>
     </div>
   </div>
   <div class="slide" style="background-image:url('assets/images/banner4-kfi.jpeg')">
     <div class="overlay"></div>
-    <div class="slide-inner container">
-      <p class="slide-kicker">Faith & Learning Combined</p>
-      <h1>Nurturing hearts and minds for tomorrow</h1>
-      <p>We integrate Christian values with academic rigor to develop confident, compassionate leaders who make a difference in their communities.</p>
-      <div class="hero-cta">
-        <a href="about.php" class="hero-btn hero-btn-primary">Our Story</a>
+    <div class="slide-inner">
+      <div class="hero-copy">
+        <p class="slide-kicker">Faith & Learning Combined</p>
+        <h1>Nurturing hearts and minds for tomorrow</h1>
+        <p>We integrate Christian values with academic rigor to develop confident, compassionate leaders who make a difference in their communities.</p>
+        <div class="hero-cta">
+          <a href="about.php" class="hero-btn hero-btn-primary">Our Story</a>
+        </div>
       </div>
     </div>
   </div>
@@ -59,7 +67,7 @@ include 'includes/header.php';
     <div class="admissions-cta p-4 p-md-5">
       <div class="row align-items-center g-4 g-lg-5">
         <div class="col-lg-8 text-center text-lg-start">
-      <h2 class="section-title text-white">Admissions Now Open</h2>
+      <h2 class="section-title text-white">K-12 Admissions Now Open</h2>
       <p class="mb-0">Give your child a strong academic and moral foundation in a nurturing school community.</p>
 
       <div id="countdown" data-deadline="2026-09-30T23:59:59" class="d-flex flex-wrap gap-2 gap-md-3 mt-4 justify-content-center justify-content-lg-start">
@@ -72,7 +80,7 @@ include 'includes/header.php';
 
         <div class="col-lg-4 text-center mt-4 mt-lg-0">
           <a href="admissions.php" class="btn btn-school btn-lg w-100 mb-2">Start Application</a>
-          <a href="contacts.php" class="btn btn-outline-light btn-lg w-100">Talk To Us</a>
+          <a href="academic.php" class="btn btn-outline-light btn-lg w-100">Join Our Network</a>
         </div>
       </div>
     </div>
