@@ -86,6 +86,62 @@ include 'includes/header.php';
     </div>
   </div>
 </section>
+
+<section class="celsin-services py-5" data-animate>
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10 text-center celsin-pillar-intro">
+        <span class="section-eyebrow">CELSIN-KFI Network</span>
+        <h2 class="section-title">CELSIN-KFI Five Pillars</h2>
+        <p class="text-muted mx-auto mb-0">CELSIN-KFI models and helps Christian school communities strengthen leadership, instruction, governance, collaboration, and improvement systems through practical support across the five pillars.</p>
+      </div>
+    </div>
+
+    <div class="row g-4 g-lg-5 justify-content-center celsin-pillars-grid">
+      <div class="col-md-6 col-xl-4">
+        <article class="celsin-pillar-card">
+          <div class="service-icon"><i class="bi bi-diagram-3" aria-hidden="true"></i></div>
+          <h5>K-12 Christian Schools Networking</h5>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-xl-4">
+        <article class="celsin-pillar-card">
+          <div class="service-icon"><i class="bi bi-calendar-event" aria-hidden="true"></i></div>
+          <h5>Annual Christian Education Summit</h5>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-xl-4">
+        <article class="celsin-pillar-card">
+          <div class="service-icon"><i class="bi bi-clipboard-check" aria-hidden="true"></i></div>
+          <h5>School Improvement Consultancy</h5>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-xl-4">
+        <article class="celsin-pillar-card">
+          <div class="service-icon"><i class="bi bi-award" aria-hidden="true"></i></div>
+          <h5>K-12 School Accreditation & Recognition</h5>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-xl-4">
+        <article class="celsin-pillar-card">
+          <div class="service-icon"><i class="bi bi-person-workspace" aria-hidden="true"></i></div>
+          <h5>Professional Development Training</h5>
+        </article>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <a href="academic.php#academic-services" class="btn btn-school btn-lg">
+        Explore All Services
+        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
  
 
 
@@ -173,29 +229,42 @@ include 'includes/header.php';
   </div>
 </section>
 
-<section class="py-5 text-center" data-animate>
+<section class="model-school-section py-5" data-animate>
   <div class="container">
-    <h2 class="section-title">Academic Programs</h2>
-    <div class="row g-4 mt-2">
-      <div class="col-md-4">
-        <div class="program-card">
-          <div class="program-icon">🎓</div>
-          <h5>K-12 Education</h5>
-          <p class="mb-0">Emphasizing learner-centered pedagogy and high academic integrity</p>
+    <div class="row align-items-center g-4 g-lg-5">
+      <div class="col-lg-5">
+        <span class="section-eyebrow">KFI Model School</span>
+        <h2 class="section-title mb-3">KFI, K-12 model school experience</h2>
+        <p class="text-muted mb-4">Kingdom Foundation Institute blends strong academics, Christian character, and practical support so learners grow in wisdom, discipline, and confidence.</p>
+        <div class="model-school-points">
+          <span>K-12 academic pathway</span>
+          <span>Christian character formation</span>
+          <span>Teacher and learner support</span>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="program-card">
-          <div class="program-icon">🤝</div>
-          <h5>Science Education</h5>
-          <p class="mb-0">"Hands-on-Lab"<br>After-School Science/STEM Club</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="program-card">
-          <div class="program-icon">🌍</div>
-          <h5>Jolly Phonics</h5>
-          <p class="mb-0">K - 3 program at KFI<br>Nationwide Training for Teachers and Administrators<br>Consultancy Services</p>
+      <div class="col-lg-7">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="program-card model-school-card">
+              <div class="program-icon">🎓</div>
+              <h5>K-12 Education</h5>
+              <p class="mb-0">Learner-centered teaching with high academic integrity and steady moral guidance.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="program-card model-school-card">
+              <div class="program-icon">🤝</div>
+              <h5>Science Education</h5>
+              <p class="mb-0">Hands-on lab learning and after-school STEM engagement for curious students.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="program-card model-school-card">
+              <div class="program-icon">🌍</div>
+              <h5>Jolly Phonics</h5>
+              <p class="mb-0">K-3 literacy support plus training for teachers and administrators.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -352,63 +421,6 @@ include 'includes/header.php';
 <?php endif; ?>
 
 
-<section class="celsin-services py-5" data-animate>
-  <div class="container">
-    <div class="text-center mb-5">
-      <span class="section-eyebrow">Our Core Services</span>
-      <h2 class="section-title">Five Pillars of Christian School Development</h2>
-      <p class="text-muted mx-auto mb-0" style="max-width:720px;">CELSIN-KFI helps schools strengthen leadership, instruction, governance, collaboration, and improvement systems through practical support.</p>
-    </div>
-
-    <div class="row g-4 justify-content-center">
-      <div class="col-md-6 col-xl">
-        <article class="celsin-service-card">
-          <div class="service-icon"><i class="bi bi-diagram-3" aria-hidden="true"></i></div>
-          <h5>K-12 Christian Schools Networking</h5>
-          <p>Connect with Christian school leaders for peer support, shared resources, referrals, and collaborative problem solving.</p>
-        </article>
-      </div>
-
-      <div class="col-md-6 col-xl">
-        <article class="celsin-service-card">
-          <div class="service-icon"><i class="bi bi-calendar-event" aria-hidden="true"></i></div>
-          <h5>Annual Christian Education Summit</h5>
-          <p>A yearly gathering for training, worship, planning, leadership renewal, and Christian education collaboration.</p>
-        </article>
-      </div>
-
-      <div class="col-md-6 col-xl">
-        <article class="celsin-service-card">
-          <div class="service-icon"><i class="bi bi-clipboard-check" aria-hidden="true"></i></div>
-          <h5>School Improvement Consultancy</h5>
-          <p>On-site and remote support for schools that need stronger systems, clearer plans, and measurable improvement goals.</p>
-        </article>
-      </div>
-
-      <div class="col-md-6 col-xl">
-        <article class="celsin-service-card">
-          <div class="service-icon"><i class="bi bi-award" aria-hidden="true"></i></div>
-          <h5>K-12 School Accreditation & Recognition</h5>
-          <p>A guided recognition process that helps schools document quality, improve standards, and celebrate progress.</p>
-        </article>
-      </div>
-
-      <div class="col-md-6 col-xl">
-        <article class="celsin-service-card">
-          <div class="service-icon"><i class="bi bi-person-workspace" aria-hidden="true"></i></div>
-          <h5>Professional Development Training</h5>
-          <p>Practical training for teachers, administrators, and school teams focused on classroom excellence and Christian formation.</p>
-        </article>
-      </div>
-    </div>
-    <div class="text-center mt-5">
-      <a href="academic.php#academic-services" class="btn btn-school btn-lg">
-        Explore All Services
-        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
-      </a>
-    </div>
-  </div>
-</section>
 
 
 

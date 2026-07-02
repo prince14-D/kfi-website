@@ -2,6 +2,13 @@
 require_once 'includes/storage_helper.php';
 $team_members = get_all_team_members();
 $team_groups = ['Board', 'Administration', 'Staff', 'Teacher'];
+$team_group_counts = [];
+foreach ($team_groups as $group) {
+  $team_group_counts[$group] = count(array_filter($team_members, function($member) use ($group) {
+    return ($member['person_type'] ?? 'Staff') === $group;
+  }));
+}
+$team_total = count($team_members);
 include 'includes/header.php';
 ?>
 
@@ -10,6 +17,36 @@ include 'includes/header.php';
     <span class="section-eyebrow">Our People</span>
     <h1>Meet Our Dedicated Team</h1>
     <p>Our educators and leaders are committed to nurturing every student's potential and fostering a culture of excellence.</p>
+  </div>
+</section>
+
+<section class="team-overview-section py-5" data-animate>
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-10 text-center">
+        <span class="section-eyebrow">Team Overview</span>
+        <h2 class="section-title mb-3">A dedicated team serving the KFI community</h2>
+        <p class="text-muted mb-4">Our board, administrators, staff, and teachers work together to guide the school with care, discipline, and a shared vision for student success.</p>
+        <div class="team-overview-note">
+          <i class="bi bi-people-fill" aria-hidden="true"></i>
+          <span>Browse each group below to see the people supporting governance, learning, and daily school life.</span>
+        </div>
+      </div>
+      <div class="col-lg-10">
+        <div class="team-stats-grid">
+          <article class="team-stat-card">
+            <strong><?php echo $team_total; ?></strong>
+            <span>Total Team Members</span>
+          </article>
+          <?php foreach ($team_groups as $group): ?>
+            <article class="team-stat-card">
+              <strong><?php echo $team_group_counts[$group]; ?></strong>
+              <span><?php echo htmlspecialchars($group); ?></span>
+            </article>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
