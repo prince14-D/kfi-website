@@ -2,8 +2,8 @@
 
 <section class="about-hero celsin-page-hero">
   <div class="container">
-    <span class="section-eyebrow">CELSIN - KFI</span>
-    <h1 class="display-4 fw-bold mb-3">Christian Education Leadership and School Improvement Network</h1>
+    <span class="section-eyebrow">CEDSIN - KFI</span>
+    <h1 class="display-4 fw-bold mb-3">Christian Education Development and School Improvement Network (CEDSIN - KFI) </h1>
     <p class="lead">Building bright futures through quality academic and Christian character development in the K-12 program.</p>
   </div>
 </section>
@@ -12,73 +12,40 @@
   <div class="container">
     <div class="text-center mb-5">
       <span class="section-eyebrow">Services</span>
-      <h2 class="section-title">Five service pillars for Christian school Development</h2>
-      <p class="text-muted mx-auto mb-0" style="max-width:720px;">CELSIN-KFI models and helps schools strengthen leadership, instruction, governance, collaboration, and improvement systems through practical support.</p>
+      <h2 class="section-title">Four service pillars</h2>
+      <p class="text-muted mx-auto mb-0" style="max-width:720px;">CEDSIN - KFI models and helps schools strengthen leadership, instruction, governance, collaboration, and improvement systems through practical support across the four pillars.</p>
     </div>
 
     <div class="row g-4">
       <div class="col-md-6 col-xl">
         <article class="celsin-service-card">
           <div class="service-icon"><i class="bi bi-diagram-3" aria-hidden="true"></i></div>
-          <h5>K-12 Christian Schools Networking</h5>
-          <p>Connect with Christian school leaders for peer support, shared resources, referrals, and collaborative problem solving.</p>
-          <ul>
-            <li>Leadership forums</li>
-            <li>School-to-school connection</li>
-            <li>Shared best practices</li>
-          </ul>
+          <h5>K-12 Model</h5>
+          <p>Excellent space and practice for academic and character growth with a Christian worldview.</p>
         </article>
       </div>
 
       <div class="col-md-6 col-xl">
         <article class="celsin-service-card">
           <div class="service-icon"><i class="bi bi-calendar-event" aria-hidden="true"></i></div>
-          <h5>Annual Christian Education Summit</h5>
-          <p>A yearly gathering for training, worship, planning, leadership renewal, and Christian education collaboration.</p>
-          <ul>
-            <li>Keynote sessions</li>
-            <li>Breakout workshops</li>
-            <li>School leader roundtables</li>
-          </ul>
+          <h5>Schools Network</h5>
+          <p>Sharing with and collaborating in best practices in Christian ethical practice.</p>
         </article>
       </div>
 
       <div class="col-md-6 col-xl">
         <article class="celsin-service-card">
           <div class="service-icon"><i class="bi bi-clipboard-check" aria-hidden="true"></i></div>
-          <h5>School Improvement Consultancy</h5>
-          <p>On-site and remote support for schools that need stronger systems, clearer plans, and measurable improvement goals.</p>
-          <ul>
-            <li>School assessment</li>
-            <li>Improvement planning</li>
-            <li>Leadership coaching</li>
-          </ul>
+          <h5>Training Institutes</h5>
+          <p>Equipping with evidence-based, research-grounded tools and resources.</p>
         </article>
       </div>
 
       <div class="col-md-6 col-xl">
         <article class="celsin-service-card">
           <div class="service-icon"><i class="bi bi-award" aria-hidden="true"></i></div>
-          <h5>K-12 School Accreditation & Recognition</h5>
-          <p>A guided recognition process that helps schools document quality, improve standards, and celebrate progress.</p>
-          <ul>
-            <li>Standards review</li>
-            <li>Evidence portfolio</li>
-            <li>Recognition pathway</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="col-md-6 col-xl">
-        <article class="celsin-service-card">
-          <div class="service-icon"><i class="bi bi-person-workspace" aria-hidden="true"></i></div>
-          <h5>Professional Development Training</h5>
-          <p>Practical training for teachers, administrators, and school teams focused on classroom excellence and Christian formation.</p>
-          <ul>
-            <li>Teacher workshops</li>
-            <li>Instructional coaching</li>
-            <li>Leadership development</li>
-          </ul>
+          <h5>Consultancy</h5>
+          <p>Supporting, monitoring, enhancing excellent practice.</p>
         </article>
       </div>
     </div>
@@ -91,7 +58,7 @@
       <div class="col-lg-5">
         <span class="section-eyebrow">Fees Structure</span>
         <h2 class="section-title">Flexible charges based on service package</h2>
-        <p class="text-muted">CELSIN-KFI charges are structured by school size, service type, training length, and whether support is delivered on campus or remotely. Contact the Admissions Office for an official quotation.</p>
+        <p class="text-muted">CEDSIN - KFI charges are structured by school size, service type, training length, and whether support is delivered on campus or remotely. Contact the Admissions Office for an official quotation.</p>
         <div class="fees-note">
           <i class="bi bi-info-circle" aria-hidden="true"></i>
           <span>Group training, network membership, summit participation, and consultancy packages are quoted separately.</span>
@@ -109,29 +76,24 @@
             </thead>
             <tbody>
               <tr>
-                <td>Network Membership</td>
+                <td>K-12 Model</td>
                 <td>K-12 Christian schools</td>
-                <td>Annual school membership</td>
+                <td>Program support package</td>
               </tr>
               <tr>
-                <td>Christian Education Summit</td>
+                <td>Schools Network</td>
                 <td>School leaders and teachers</td>
-                <td>Per participant or school team</td>
+                <td>Network participation package</td>
               </tr>
               <tr>
-                <td>Professional Development</td>
+                <td>Training Institutes</td>
                 <td>Teachers and administrators</td>
                 <td>Per workshop, day, or training package</td>
               </tr>
               <tr>
-                <td>School Improvement Consultancy</td>
+                <td>Consultancy</td>
                 <td>Schools needing guided improvement</td>
                 <td>By assessment scope and support period</td>
-              </tr>
-              <tr>
-                <td>Accreditation & Recognition</td>
-                <td>Schools pursuing quality recognition</td>
-                <td>Application, review, and site visit package</td>
               </tr>
             </tbody>
           </table>
@@ -146,8 +108,8 @@
     <div class="celsin-download-panel">
       <div>
         <span class="section-eyebrow">Get Started</span>
-        <h2>Bring CELSIN-KFI support to your school</h2>
-        <p>Download the brochure, review the service pillars, and register your interest with the CELSIN-KFI office.</p>
+        <h2>Bring CEDSIN - KFI support to your school</h2>
+        <p>Download the brochure, review the four pillars, and register your interest with the CEDSIN - KFI office.</p>
       </div>
       <div class="celsin-cta-actions">
         <a href="assets/files/celsin-kfi-brochure.html" class="btn btn-light btn-lg" download>
@@ -166,12 +128,12 @@
       <div class="col-lg-7">
         <span class="section-eyebrow">Register Now</span>
         <h2 class="section-title">Submit your school interest</h2>
-        <p class="text-muted">Complete the form below to register your school's interest with the CELSIN-KFI office.</p>
+        <p class="text-muted">Complete the form below to register your school's interest with the CEDSIN - KFI office.</p>
 
         <?php if (isset($_GET['success']) && $_GET['success'] === '1'): ?>
         <div class="alert alert-success">
           <h4 class="alert-heading"><i class="bi bi-check-circle me-2"></i>Thank You!</h4>
-          <p class="mb-0">Kindly wait for a call or message from the team. We appreciate your interest in CELSIN-KFI and will be in touch soon!</p>
+          <p class="mb-0">Kindly wait for a call or message from the team. We appreciate your interest in CEDSIN - KFI and will be in touch soon!</p>
         </div>
         <?php else: ?>
         
@@ -198,11 +160,10 @@
               <label for="schoolType" class="form-label">Service Interest <span class="text-danger">*</span></label>
               <select class="form-select" id="schoolType" name="service_interest" required>
                 <option value="">Choose a service</option>
-                <option>K-12 Christian Schools Networking</option>
-                <option>Annual Christian Education Summit</option>
-                <option>School Improvement Consultancy</option>
-                <option>K-12 School Accreditation & Recognition</option>
-                <option>Professional Development Training</option>
+                <option>K-12 Model</option>
+                <option>Schools Network</option>
+                <option>Training Institutes</option>
+                <option>Consultancy</option>
               </select>
             </div>
             <div class="col-md-6">
@@ -230,7 +191,7 @@
       <div class="col-lg-5">
         <aside class="admission-office-card">
           <span class="section-eyebrow">Admissions Office</span>
-          <h3>Contact CELSIN-KFI</h3>
+          <h3>Contact CEDSIN - KFI</h3>
           <p>For fees, registration, partnership requests, or training schedules, contact the office directly.</p>
 
           <div class="office-contact-list">

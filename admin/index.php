@@ -191,7 +191,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         }
     }
 
-    // Handle CELSIN Registration Form Submission
+    // Handle CEDSIN Registration Form Submission
     if (isset($_POST['submit_celsin_registration'])) {
         $school_name = trim($_POST['school_name'] ?? '');
         $contact_name = trim($_POST['contact_name'] ?? '');
@@ -229,8 +229,8 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     }
 
     if (isset($_POST['delete_celsin'])) {
-        $success = delete_celsin_registration($_POST['celsin_id'] ?? '') ? 'CELSIN registration deleted.' : '';
-        $error = $success ? '' : 'Unable to delete the CELSIN registration.';
+        $success = delete_celsin_registration($_POST['celsin_id'] ?? '') ? 'CEDSIN - KFI registration deleted.' : '';
+        $error = $success ? '' : 'Unable to delete the CEDSIN - KFI registration.';
     }
 }
 
@@ -256,12 +256,12 @@ if (isset($_GET['export_donations'])) {
 }
 
 if (isset($_GET['export_celsin'])) {
-    $celsin = get_all_celsin_registrations();
+    $cedsin = get_all_celsin_registrations();
     header('Content-Type: text/csv');
     header('Content-Disposition: attachment; filename="celsin_registrations_' . date('Y-m-d') . '.csv"');
     $output = fopen('php://output', 'w');
     fputcsv($output, ['Submitted', 'School Name', 'Contact Name', 'Email', 'Phone', 'Service Interest', 'School Size', 'Message']);
-    foreach ($celsin as $item) {
+    foreach ($cedsin as $item) {
         fputcsv($output, [
             $item['submitted_at'] ?? '',
             $item['school_name'] ?? '',
@@ -283,7 +283,7 @@ $gallery_list = get_all_gallery_items();
 $testimonial_list = get_all_testimonials();
 $applications = get_all_admission_applications();
 $donations = get_all_donations();
-$celsin_registrations = get_all_celsin_registrations();
+            $celsin_registrations = get_all_celsin_registrations();
 $image_options = [
     'banner2.jpeg' => 'Campus Activity',
     'banner3.jpeg' => 'School Event',
@@ -332,7 +332,7 @@ $image_options = [
             <div><strong><?php echo count($testimonial_list); ?></strong><span>Testimonials</span></div>
             <div><strong><?php echo count($applications); ?></strong><span>Admission Inquiries</span></div>
             <div><strong><?php echo count($donations); ?></strong><span>Donation Requests</span></div>
-            <div><strong><?php echo count($celsin_registrations); ?></strong><span>CELSIN Registrations</span></div>
+            <div><strong><?php echo count($celsin_registrations); ?></strong><span>CEDSIN - KFI Registrations</span></div>
         </section>
 
         <ul class="nav nav-pills admin-tabs mb-4" id="adminTabs" role="tablist">
@@ -342,7 +342,7 @@ $image_options = [
             <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#testimonials-panel" type="button">Testimonials</button></li>
             <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#applications-panel" type="button">Admissions</button></li>
             <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#donations-panel" type="button">Donations</button></li>
-            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#celsin-panel" type="button">CELSIN Registrations</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#celsin-panel" type="button">CEDSIN - KFI Registrations</button></li>
         </ul>
 
         <div class="tab-content">
@@ -798,13 +798,13 @@ $image_options = [
             <section class="tab-pane fade" id="celsin-panel">
                 <div class="admin-panel">
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h2>CELSIN Registrations</h2>
+                        <h2>CEDSIN - KFI Registrations</h2>
                         <?php if (!empty($celsin_registrations)): ?>
                             <a href="?export_celsin" class="btn btn-success"><i class="bi bi-download me-1"></i> Export CSV</a>
                         <?php endif; ?>
                     </div>
                     <?php if (empty($celsin_registrations)): ?>
-                        <div class="admin-empty-state">No CELSIN registrations have been submitted yet.</div>
+                        <div class="admin-empty-state">No CEDSIN - KFI registrations have been submitted yet.</div>
                     <?php else: ?>
                         <div class="table-responsive">
                             <table class="table admin-table align-middle">
@@ -891,7 +891,7 @@ $image_options = [
                                 <div class="d-flex gap-2 me-auto">
                                     <a href="tel:<?php echo htmlspecialchars($item['contact_phone'] ?? ''); ?>" class="btn btn-primary"><i class="bi bi-telephone me-1"></i> Call</a>
                                     <a href="https://wa.me/<?php echo preg_replace('/[^0-9]/', '', $item['contact_phone'] ?? ''); ?>" target="_blank" class="btn btn-success"><i class="bi bi-whatsapp me-1"></i> WhatsApp</a>
-                                    <a href="mailto:<?php echo htmlspecialchars($item['contact_email'] ?? ''); ?>?subject=Re: CELSIN-KFI Registration" class="btn btn-outline-primary"><i class="bi bi-envelope me-1"></i> Email</a>
+                                    <a href="mailto:<?php echo htmlspecialchars($item['contact_email'] ?? ''); ?>?subject=Re: CEDSIN - KFI Registration" class="btn btn-outline-primary"><i class="bi bi-envelope me-1"></i> Email</a>
                                 </div>
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
@@ -914,7 +914,7 @@ $image_options = [
                     new bootstrap.Modal(modalEl);
                 }
             });
-            // Initialize CELSIN modals
+            // Initialize CEDSIN modals
             var celsinModals = document.querySelectorAll('[id^="celsinModal"]');
             celsinModals.forEach(function(modalEl) {
                 if (typeof bootstrap !== 'undefined' && !modalEl._bsModal) {

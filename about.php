@@ -22,8 +22,8 @@ include 'includes/header.php';
       <div class="col-lg-7 text-center text-lg-start">
         <h2 class="fw-bold mb-3" style="color: #000039; font-size: 2.2rem;">About The Institution</h2>
         <p style="color: #475569; line-height: 1.8; font-size: 1rem;">
-          Kingdom Foundation Institute, Inc., nestled in the Diamond Creek area of Soul Clinic Community, Paynesville, Liberia, was incorporated in 2021 as a not-for-profit corporation in Montserrado County. Since our beginnings in 1996 in the Enders' home as a missionary family's educational initiative, KFI has grown into a model of educational excellence and the home of the Christian Education Leadership and School Improvement Network (CELSIN).
-          CELSIN-KFI is a Christian school development program of Kingdom Foundation Institute, Liberia Inc. built around five service pillars for connecting K-12 Christian schools, sharing best practices, facilitating collaboration, and offering peer support.
+          Kingdom Foundation Institute, Inc., nestled in the Diamond Creek area of Soul Clinic Community, Paynesville, Liberia, was incorporated in 2021 as a not-for-profit corporation in Montserrado County. Since our beginnings in 1996 in the Enders' home as a missionary family's educational initiative, KFI has grown into a model of educational excellence and the home of the Christian Education Leadership and School Improvement Network (CEDSIN - KFI).
+          CEDSIN - KFI is a Christian school development program of Kingdom Foundation Institute, Liberia Inc. built around four service pillars for K-12 Model, Schools Network, Training Institutes, and Consultancy.
         </p>
         <div class="mt-4">
           <div class="row g-4">
@@ -57,7 +57,7 @@ include 'includes/header.php';
             🎯
           </div>
           <h4 class="fw-bold mb-3" style="color: #000039;">Our Mission</h4>
-          <p style="color: #475569; line-height: 1.8;">Committed to modelling and strengthening Christian schooling in Liberia and in West Africa through our service pillars, which promote academic excellence, biblical worldview integration, and ethical educational practice.</p>
+          <p style="color: #475569; line-height: 1.8;">Committed to modelling and strengthening Christian schooling in Liberia and in West Africa through our four service pillars, which promote academic excellence, biblical worldview integration, and ethical educational practice.</p>
         </div>
       </div>
       <div class="col-lg-6">
@@ -76,21 +76,20 @@ include 'includes/header.php';
   </div>
 </section>
 
-<!-- CELSIN Section -->
+<!-- CEDSIN Section -->
 <section class="py-5" style="background: linear-gradient(180deg, rgba(240,244,255,0.98) 0%, rgba(255,255,255,0.98) 100%);">
   <div class="container">
     <h2 class="text-center fw-bold mb-5" style="color: #000039; font-size: 2.2rem;">Christian Education Leadership and School Improvement Network</h2>
     <div class="row g-4 align-items-start">
       <div class="col-lg-6">
         <div style="background: #ffffff; padding: 2rem; border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,142,0.08); border-top: 4px solid #00008E; min-height: 100%;">
-          <h4 class="fw-bold mb-3" style="color: #000039;">About CELSIN-KFI</h4>
-          <p style="color: #475569; line-height: 1.8;">CELSIN-KFI is a Christian school development program of Kingdom Foundation Institute, Liberia Inc. It is built around five service pillars designed to connect K-12 Christian schools, share best practices, facilitate collaboration, and offer peer support across Liberia and West Africa.</p>
+          <h4 class="fw-bold mb-3" style="color: #000039;">About CEDSIN - KFI</h4>
+          <p style="color: #475569; line-height: 1.8;">CEDSIN - KFI is a Christian school development program of Kingdom Foundation Institute, Liberia Inc. It is built around four service pillars designed to support K-12 Model, Schools Network, Training Institutes, and Consultancy across Liberia and West Africa.</p>
           <ul style="color: #475569; line-height: 1.8; font-size: 0.95rem; padding-left: 1.2rem; margin-top: 1rem;">
-            <li>Connecting K-12 Christian schools through intentional networks.</li>
-            <li>Sharing best practices for curriculum, instruction, and school culture.</li>
-            <li>Facilitating collaboration and peer learning among school leaders.</li>
-            <li>Providing mentoring, training, and ongoing support for teachers.</li>
-            <li>Promoting faith-based academic excellence and ethical educational practice.</li>
+            <li>K-12 Model for school development and improvement.</li>
+            <li>Schools Network for collaboration and shared support.</li>
+            <li>Training Institutes for leadership and teacher growth.</li>
+            <li>Consultancy for expert school guidance and planning.</li>
           </ul>
         </div>
       </div>

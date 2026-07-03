@@ -305,7 +305,7 @@ function delete_donation($id) {
     return write_json_storage(DONATIONS_STORAGE, $donations);
 }
 
-// CELSIN Registration Functions
+// CEDSIN Registration Functions
 function ensure_celsin_storage() {
     ensure_json_storage(CELSIN_STORAGE);
 }

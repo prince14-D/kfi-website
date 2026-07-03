@@ -87,49 +87,67 @@ include 'includes/header.php';
   </div>
 </section>
 
+<section class="cedsin-about-section py-5" data-animate>
+  <div class="container-fluid px-4 px-lg-5 py-3">
+    <div class="row align-items-center g-4 g-lg-5">
+      <div class="col-xl-5">
+        <div class="cedsin-logo-card">
+          <div class="cedsin-logo-frame">
+            <img src="assets/images/Cedsin.jpeg" alt="KFI Logo" class="img-fluid cedsin-logo-img">
+          </div>
+          <p class="cedsin-logo-caption mb-0">Kingdom Foundation Institute is home to the CEDSIN - KFI, supporting schools through excellent education with a Christian worldview.</p>
+        </div>
+      </div>
+      <div class="col-xl-7">
+        <div class="cedsin-about-copy text-center text-xl-start">
+          <span class="section-eyebrow">About CEDSIN - KFI</span>
+          <h2 class="section-title">Christian Education Development and School Improvement Network (CEDSIN - KFI) </h2>
+          <p class="text-muted">CEDSIN - KFI is built around four pillars: K-12 Model, Schools Network, Training Institutes, and Consultancy. The program helps Christian schools strengthen leadership, improve teaching and learning, connect with peers, and receive practical support for sustainable school growth.</p>
+          <a href="academic.php#celsin-register" class="btn btn-school btn-sm cedsin-register-btn">Register Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 <section class="celsin-services py-5" data-animate>
   <div class="container">
     <div class="row justify-content-center mb-5">
       <div class="col-lg-10 text-center celsin-pillar-intro">
-        <span class="section-eyebrow">CELSIN-KFI Network</span>
-        <h2 class="section-title">CELSIN-KFI Five Pillars</h2>
-        <p class="text-muted mx-auto mb-0">CELSIN-KFI models and helps Christian school communities strengthen leadership, instruction, governance, collaboration, and improvement systems through practical support across the five pillars.</p>
+        <span class="section-eyebrow">Explore CEDSIN - KFI Network</span>
+        <h2 class="section-title">Explore CEDSIN - KFI Four Pillars</h2>
+        
       </div>
     </div>
 
     <div class="row g-4 g-lg-5 justify-content-center celsin-pillars-grid">
-      <div class="col-md-6 col-xl-4">
+      <div class="col-md-6 col-xl-3">
         <article class="celsin-pillar-card">
           <div class="service-icon"><i class="bi bi-diagram-3" aria-hidden="true"></i></div>
-          <h5>K-12 Christian Schools Networking</h5>
+          <h5>K-12 Model</h5>
         </article>
       </div>
 
-      <div class="col-md-6 col-xl-4">
+      <div class="col-md-6 col-xl-3">
         <article class="celsin-pillar-card">
           <div class="service-icon"><i class="bi bi-calendar-event" aria-hidden="true"></i></div>
-          <h5>Annual Christian Education Summit</h5>
+          <h5>Schools Network</h5>
         </article>
       </div>
 
-      <div class="col-md-6 col-xl-4">
+      <div class="col-md-6 col-xl-3">
         <article class="celsin-pillar-card">
           <div class="service-icon"><i class="bi bi-clipboard-check" aria-hidden="true"></i></div>
-          <h5>School Improvement Consultancy</h5>
+          <h5>Training Institutes</h5>
         </article>
       </div>
 
-      <div class="col-md-6 col-xl-4">
+      <div class="col-md-6 col-xl-3">
         <article class="celsin-pillar-card">
           <div class="service-icon"><i class="bi bi-award" aria-hidden="true"></i></div>
-          <h5>K-12 School Accreditation & Recognition</h5>
-        </article>
-      </div>
-
-      <div class="col-md-6 col-xl-4">
-        <article class="celsin-pillar-card">
-          <div class="service-icon"><i class="bi bi-person-workspace" aria-hidden="true"></i></div>
-          <h5>Professional Development Training</h5>
+          <h5>Consultancy</h5>
         </article>
       </div>
     </div>
@@ -141,6 +159,8 @@ include 'includes/header.php';
     </div>
   </div>
 </section>
+
+
 
  
 

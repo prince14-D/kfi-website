@@ -75,7 +75,7 @@ include 'includes/header.php';
         <article class="donation-priority-card">
           <i class="bi bi-diagram-3-fill"></i>
           <h3>School Network</h3>
-          <p>CELSIN-KFI services that connect Christian schools and support improvement systems.</p>
+          <p>CEDSIN - KFI services that connect Christian schools and support improvement systems.</p>
         </article>
       </div>
     </div>
@@ -188,7 +188,7 @@ include 'includes/header.php';
                   <option value="student-support">Student Support & Scholarships</option>
                   <option value="teacher-development">Teacher Development</option>
                   <option value="facilities">Facilities & Campus Improvements</option>
-                  <option value="school-network">School Network (CELSIN-KFI)</option>
+                  <option value="school-network">School Network (CEDSIN - KFI)</option>
                   <option value="general-operations">General Operations</option>
                 </select>
               </div>
