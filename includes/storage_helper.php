@@ -132,8 +132,9 @@ function get_featured_team_members($limit = 4) {
 
 function save_team_member($item) {
     $team = get_all_team_members();
-    $team[] = [
-        'id' => $item['id'] ?? uniqid('team_', true),
+    $id = $item['id'] ?? '';
+    $record = [
+        'id' => $id !== '' ? $id : uniqid('team_', true),
         'name' => trim($item['name'] ?? ''),
         'role' => trim($item['role'] ?? ''),
         'person_type' => trim($item['person_type'] ?? 'Staff'),
@@ -144,6 +145,19 @@ function save_team_member($item) {
         'image' => normalize_asset_image($item['image'] ?? '', 'assets/images/logo.png'),
         'sort_order' => (int)($item['sort_order'] ?? 99),
     ];
+
+    $updated = false;
+    foreach ($team as $index => $member) {
+        if (($member['id'] ?? '') === $record['id']) {
+            $team[$index] = $record;
+            $updated = true;
+            break;
+        }
+    }
+
+    if (!$updated) {
+        $team[] = $record;
+    }
 
     return write_json_storage(TEAM_STORAGE, $team);
 }

@@ -96,7 +96,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         }
     }
 
-    if (isset($_POST['post_team'])) {
+    if (isset($_POST['post_team']) || isset($_POST['update_team'])) {
         $name = trim($_POST['name'] ?? '');
         $role = trim($_POST['role'] ?? '');
 
@@ -120,10 +120,14 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
                     }
                 }
             }
+
+            if ($imagePath === '') {
+                $imagePath = $_POST['existing_team_image'] ?? '';
+            }
             
             $teamData = $_POST;
             $teamData['image'] = $imagePath;
-            $success = save_team_member($teamData) ? 'Team member added successfully.' : '';
+            $success = save_team_member($teamData) ? (isset($_POST['update_team']) ? 'Team member updated successfully.' : 'Team member added successfully.') : '';
             $error = $success ? '' : 'Unable to save the team member.';
         }
     }
@@ -466,6 +470,7 @@ $image_options = [
                             <h2>Team Members</h2>
                             <div class="admin-news-list">
                                 <?php foreach ($team_list as $item): ?>
+                                    <?php $team_modal_id = 'teamEdit' . preg_replace('/[^A-Za-z0-9_-]/', '', $item['id'] ?? ''); ?>
                                     <article class="admin-news-row">
                                         <img src="../<?php echo htmlspecialchars(news_image_url($item['image'] ?? '')); ?>" alt="">
                                         <div>
@@ -473,11 +478,81 @@ $image_options = [
                                             <h3><?php echo htmlspecialchars($item['name'] ?? 'Team member'); ?></h3>
                                             <p><?php echo htmlspecialchars($item['role'] ?? ''); ?></p>
                                         </div>
-                                        <form method="post">
-                                            <input type="hidden" name="team_id" value="<?php echo htmlspecialchars($item['id'] ?? ''); ?>">
-                                            <button type="submit" name="delete_team" class="btn btn-outline-danger btn-sm" onclick="return confirm('Delete this team member?');"><i class="bi bi-trash3"></i></button>
-                                        </form>
+                                        <div class="d-flex gap-2">
+                                            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#<?php echo htmlspecialchars($team_modal_id); ?>"><i class="bi bi-pencil-square"></i></button>
+                                            <form method="post">
+                                                <input type="hidden" name="team_id" value="<?php echo htmlspecialchars($item['id'] ?? ''); ?>">
+                                                <button type="submit" name="delete_team" class="btn btn-outline-danger btn-sm" onclick="return confirm('Delete this team member?');"><i class="bi bi-trash3"></i></button>
+                                            </form>
+                                        </div>
                                     </article>
+
+                                    <div class="modal fade" id="<?php echo htmlspecialchars($team_modal_id); ?>" tabindex="-1">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <form method="post" enctype="multipart/form-data">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Edit Team Member</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($item['id'] ?? ''); ?>">
+                                                        <input type="hidden" name="existing_team_image" value="<?php echo htmlspecialchars($item['image'] ?? ''); ?>">
+
+                                                        <label class="form-label" for="<?php echo htmlspecialchars($team_modal_id); ?>Name">Name</label>
+                                                        <input type="text" name="name" id="<?php echo htmlspecialchars($team_modal_id); ?>Name" class="form-control mb-3" value="<?php echo htmlspecialchars($item['name'] ?? ''); ?>" required>
+
+                                                        <label class="form-label" for="<?php echo htmlspecialchars($team_modal_id); ?>Role">Role</label>
+                                                        <input type="text" name="role" id="<?php echo htmlspecialchars($team_modal_id); ?>Role" class="form-control mb-3" value="<?php echo htmlspecialchars($item['role'] ?? ''); ?>" required>
+
+                                                        <label class="form-label" for="<?php echo htmlspecialchars($team_modal_id); ?>Type">People Group</label>
+                                                        <select name="person_type" id="<?php echo htmlspecialchars($team_modal_id); ?>Type" class="form-select mb-3">
+                                                            <option <?php echo ($item['person_type'] ?? '') === 'Board Member' ? 'selected' : ''; ?>>Board Member</option>
+                                                            <option <?php echo ($item['person_type'] ?? '') === 'Administration' ? 'selected' : ''; ?>>Administration</option>
+                                                            <option <?php echo ($item['person_type'] ?? '') === 'Staff' ? 'selected' : ''; ?>>Staff</option>
+                                                            <option <?php echo ($item['person_type'] ?? '') === 'Lecturer' ? 'selected' : ''; ?>>Lecturer</option>
+                                                            <option <?php echo ($item['person_type'] ?? '') === 'Teacher' ? 'selected' : ''; ?>>Teacher</option>
+                                                        </select>
+
+                                                        <label class="form-label" for="<?php echo htmlspecialchars($team_modal_id); ?>Department">Department Badge</label>
+                                                        <input type="text" name="department" id="<?php echo htmlspecialchars($team_modal_id); ?>Department" class="form-control mb-3" value="<?php echo htmlspecialchars($item['department'] ?? ''); ?>">
+
+                                                        <div class="row g-3">
+                                                            <div class="col-md-6">
+                                                                <label class="form-label" for="<?php echo htmlspecialchars($team_modal_id); ?>Email">Email</label>
+                                                                <input type="email" name="email" id="<?php echo htmlspecialchars($team_modal_id); ?>Email" class="form-control" value="<?php echo htmlspecialchars($item['email'] ?? ''); ?>">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="form-label" for="<?php echo htmlspecialchars($team_modal_id); ?>Phone">Phone</label>
+                                                                <input type="text" name="phone" id="<?php echo htmlspecialchars($team_modal_id); ?>Phone" class="form-control" value="<?php echo htmlspecialchars($item['phone'] ?? ''); ?>">
+                                                            </div>
+                                                        </div>
+
+                                                        <label class="form-label mt-3" for="<?php echo htmlspecialchars($team_modal_id); ?>Image">Image</label>
+                                                        <select name="image" id="<?php echo htmlspecialchars($team_modal_id); ?>Image" class="form-select mb-2">
+                                                            <option value="">Keep current image</option>
+                                                            <?php foreach ($image_options as $file => $label): ?>
+                                                                <option value="<?php echo htmlspecialchars($file); ?>" <?php echo basename($item['image'] ?? '') === $file ? 'selected' : ''; ?>><?php echo htmlspecialchars($label); ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+
+                                                        <div class="form-text mb-2">Or upload a new image:</div>
+                                                        <input type="file" name="team_upload_image" class="form-control mb-3" accept="image/*">
+
+                                                        <label class="form-label" for="<?php echo htmlspecialchars($team_modal_id); ?>SortOrder">Display Order</label>
+                                                        <input type="number" name="sort_order" id="<?php echo htmlspecialchars($team_modal_id); ?>SortOrder" class="form-control mb-3" value="<?php echo htmlspecialchars($item['sort_order'] ?? 99); ?>">
+
+                                                        <label class="form-label" for="<?php echo htmlspecialchars($team_modal_id); ?>Bio">Bio</label>
+                                                        <textarea name="bio" id="<?php echo htmlspecialchars($team_modal_id); ?>Bio" class="form-control" rows="5"><?php echo htmlspecialchars($item['bio'] ?? ''); ?></textarea>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                        <button type="submit" name="update_team" class="btn btn-school">Save Changes</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <?php endforeach; ?>
                             </div>
                         </div>
