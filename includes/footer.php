@@ -7,7 +7,7 @@
           <img src="assets/images/logo.png" alt="Kingdom Foundation Institute Logo" width="48" height="48" class="rounded-circle">
           <h5 class="fw-bold mb-0">Kingdom Foundation Institute</h5>
         </div>
-        <p class="mb-2">Building strong academic foundations with discipline, creativity, and values.</p>
+        <p class="mb-2">Building strong academic and character foundation rooted in a Christian worldview.</p>
         <p class="mb-0"><strong>Motto:</strong> CULTURE OF EXCELLENCE</p>
       </div>
 

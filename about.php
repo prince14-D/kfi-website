@@ -5,7 +5,7 @@ include 'includes/header.php';
 ?>
 
 <!-- Hero Banner -->
-<section class="about-hero" style="background: linear-gradient(135deg, rgba(0,0,57,0.75), rgba(0,0,142,0.75)), url('assets/images/banner3.jpeg') center/cover; color: #fff; padding: 5rem 1rem; text-align: center;">
+<section class="about-hero" style="background: linear-gradient(135deg, rgba(0,0,57,0.75), rgba(0,0,142,0.75)), url('assets/images/banner-slider.jpeg') center/cover; color: #fff; padding: 5rem 1rem; text-align: center;">
   <div class="container">
     <h1 class="display-4 fw-bold mb-3">About Kingdom Foundation Institute</h1>
     <p class="lead" style="max-width: 60ch; margin: 0 auto; font-size: 1.1rem;">Connecting Christian schools through leadership, collaboration, and school improvement for Liberia and West Africa.</p>
@@ -20,9 +20,9 @@ include 'includes/header.php';
         <img src="assets/images/logo.png" alt="KFI Logo" style="width: 280px; height: auto; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,142,0.15); display: block; margin: 0 auto;">
       </div>
       <div class="col-lg-7 text-center text-lg-start">
-        <h2 class="fw-bold mb-3" style="color: #000039; font-size: 2.2rem;">About The Institution</h2>
+        <h2 class="fw-bold mb-3" style="color: #000039; font-size: 2.2rem;">Kingdom Foundation Institute, Inc</h2>
         <p style="color: #475569; line-height: 1.8; font-size: 1rem;">
-          Kingdom Foundation Institute, Inc., nestled in the Diamond Creek area of Soul Clinic Community, Paynesville, Liberia, was incorporated in 2021 as a not-for-profit corporation in Montserrado County. Since our beginnings in 1996 in the Enders' home as a missionary family's educational initiative, KFI has grown into a model of educational excellence and the home of the Christian Education Leadership and School Improvement Network (CEDSIN - KFI).
+          Nestled in the Diamond Creek area of Soul Clinic Community, Paynesville, Liberia, was incorporated in 2021 as a not-for-profit corporation in Montserrado County. Since our beginnings in 1996 in the Enders' home as a missionary family's educational initiative, KFI has grown into a model of educational excellence and the home of the Christian Education Leadership and School Improvement Network (CEDSIN - KFI).
           CEDSIN - KFI is a Christian school development program of Kingdom Foundation Institute, Liberia Inc. built around four service pillars for K-12 Model, Schools Network, Training Institutes, and Consultancy.
         </p>
         <div class="mt-4">
